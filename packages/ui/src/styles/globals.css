@@ -8,7 +8,7 @@
 @source "../**/*.{ts,tsx}";
 
 :root {
-    --background: oklch(1 0 0);
+    --background: oklch(0.985 0.002 280);
     --foreground: oklch(0.145 0.008 326);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0.008 326);
@@ -40,40 +40,46 @@
     --sidebar-accent-foreground: oklch(0.212 0.019 322.12);
     --sidebar-border: oklch(0.922 0.005 325.62);
     --sidebar-ring: oklch(0.711 0.019 323.02);
+    --accent-pink: oklch(0.72 0.18 350);
+    --surface: oklch(0.97 0.003 280);
+    --surface-elevated: oklch(0.98 0.002 280);
 }
 
 .dark {
-    --background: oklch(0.145 0.008 326);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.212 0.019 322.12);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.212 0.019 322.12);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.438 0.218 303.724);
+    --background: oklch(0.13 0.02 280);
+    --foreground: oklch(0.95 0.005 280);
+    --card: oklch(0.17 0.018 282);
+    --card-foreground: oklch(0.95 0.005 280);
+    --popover: oklch(0.17 0.018 282);
+    --popover-foreground: oklch(0.95 0.005 280);
+    --primary: oklch(0.55 0.265 302);
     --primary-foreground: oklch(0.977 0.014 308.299);
-    --secondary: oklch(0.274 0.006 286.033);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.263 0.024 320.12);
-    --muted-foreground: oklch(0.711 0.019 323.02);
-    --accent: oklch(0.263 0.024 320.12);
-    --accent-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.22 0.015 280);
+    --secondary-foreground: oklch(0.95 0.005 280);
+    --muted: oklch(0.20 0.015 280);
+    --muted-foreground: oklch(0.60 0.02 280);
+    --accent: oklch(0.20 0.015 280);
+    --accent-foreground: oklch(0.95 0.005 280);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
+    --border: oklch(1 0 0 / 8%);
+    --input: oklch(1 0 0 / 12%);
     --ring: oklch(0.542 0.034 322.5);
     --chart-1: oklch(0.823 0.12 346.018);
     --chart-2: oklch(0.656 0.241 354.308);
     --chart-3: oklch(0.592 0.249 0.584);
     --chart-4: oklch(0.525 0.223 3.958);
     --chart-5: oklch(0.459 0.187 3.815);
-    --sidebar: oklch(0.212 0.019 322.12);
-    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar: oklch(0.17 0.018 282);
+    --sidebar-foreground: oklch(0.95 0.005 280);
     --sidebar-primary: oklch(0.627 0.265 303.9);
     --sidebar-primary-foreground: oklch(0.977 0.014 308.299);
-    --sidebar-accent: oklch(0.263 0.024 320.12);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-accent: oklch(0.20 0.015 280);
+    --sidebar-accent-foreground: oklch(0.95 0.005 280);
+    --sidebar-border: oklch(1 0 0 / 8%);
     --sidebar-ring: oklch(0.542 0.034 322.5);
+    --accent-pink: oklch(0.72 0.18 350);
+    --surface: oklch(0.17 0.015 280);
+    --surface-elevated: oklch(0.21 0.018 282);
 }
 
 @theme inline {
@@ -115,15 +121,61 @@
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-ring: var(--sidebar-ring);
+    --color-accent-pink: var(--accent-pink);
+    --color-surface: var(--surface);
+    --color-surface-elevated: var(--surface-elevated);
     --font-sans: var(--font-sans);
     --font-heading: var(--font-heading);
+    --font-mono: var(--font-mono);
+    --animate-fade-in-up: fade-in-up 0.6s ease-out both;
+    --animate-float: float 8s ease-in-out infinite;
+    --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
-    }
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     @apply bg-background text-foreground;
-    }
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(-50%, -25%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -25%) scale(1.08);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.22;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
