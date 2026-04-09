@@ -1,19 +1,22 @@
 import type { Metadata } from "next"
-import { DM_Sans, Space_Grotesk, Geist_Mono } from "next/font/google"
+import { Instrument_Serif, Barlow, Geist_Mono } from "next/font/google"
 import { cn } from "@workspace/ui/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 
 import "@workspace/ui/globals.css"
 
-const spaceGrotesk = Space_Grotesk({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
+  weight: "400",
+  style: "italic",
   variable: "--font-heading",
 })
 
-const dmSans = DM_Sans({
+const barlow = Barlow({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-body",
 })
 
 const geistMono = Geist_Mono({
@@ -45,14 +48,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         "antialiased",
-        dmSans.variable,
-        spaceGrotesk.variable,
+        barlow.variable,
+        instrumentSerif.variable,
         geistMono.variable,
-        "font-sans"
+        "font-body"
       )}
     >
       <body>
-        <ThemeProvider>
+        <ThemeProvider defaultTheme="dark" forcedTheme="dark">
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>

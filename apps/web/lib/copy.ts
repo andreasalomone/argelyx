@@ -57,6 +57,21 @@ interface Milestone {
   description: string
 }
 
+interface PricingTier {
+  name: string
+  price: string
+  description: string
+  features: readonly string[]
+  isPopular?: boolean
+}
+
+interface PricingCopy {
+  title: string
+  subtitle: string
+  tiers: readonly [PricingTier, PricingTier, PricingTier]
+  cta: string
+}
+
 interface RoadmapCopy {
   title: string
   milestones: readonly [Milestone, Milestone, Milestone]
@@ -85,6 +100,7 @@ export interface SiteCopy {
   solution: SolutionCopy
   market: MarketCopy
   roadmap: RoadmapCopy
+  pricing: PricingCopy
   team: TeamCopy
   footer: FooterCopy
 }
@@ -147,26 +163,26 @@ export const COPY: Record<Locale, SiteCopy> = {
       ],
     },
     market: {
-      title: "Il Mercato",
-      subtitle: "Un settore in forte espansione",
+      title: "Performance",
+      subtitle: "Dati alla mano",
       stats: [
         {
-          value: "$1.9B",
-          label: "Mercato globale 2024",
-          sublabel: "Colture cellulari 3D",
+          value: "100%",
+          label: "Vegetale",
+          sublabel: "Senza componenti animali",
         },
         {
-          value: "$4.3B",
-          label: "Proiezione 2030",
-          sublabel: "CAGR 14–15%",
+          value: "100%",
+          label: "Xeno-free",
+          sublabel: "Riproducibilità batch-to-batch totale",
         },
         {
-          value: "16.5%",
-          label: "Crescita annuale",
-          sublabel: "Organoidi e sferoidi",
+          value: "20+",
+          label: "Linee testate",
+          sublabel: "Validato su iPSC, NPC, tumorali",
         },
       ],
-      businessModelTitle: "Modello di Business",
+      businessModelTitle: "Accelera la tua ricerca",
       pillars: [
         {
           title: "B2C / E-commerce",
@@ -204,6 +220,46 @@ export const COPY: Record<Locale, SiteCopy> = {
           description: "Sostenibilità economica",
         },
       ],
+    },
+    pricing: {
+      title: "Prezzi",
+      subtitle: "Scegli la configurazione ideale per il tuo laboratorio",
+      cta: "Richiedi un Preventivo",
+      tiers: [
+        {
+          name: "AlgiSTEM XF ReleX",
+          price: "€120",
+          description: "La nostra esclusiva soluzione di recupero cellulare non meccanico.",
+          features: [
+            "Recupero non distruttivo",
+            "Mantiene l'integrità cellulare",
+            "Nessun danno enzimatico"
+          ]
+        },
+        {
+          name: "AlgiSTEM XF Kit",
+          price: "€480",
+          description: "La matrice extracellulare xeno-free per la coltura cellulare.",
+          features: [
+            "Polvere di alginati funzionalizzati",
+            "Buffer di reidratazione",
+            "Agente reticolante",
+            "Completamente vegetale"
+          ]
+        },
+        {
+          name: "Bundle Completo",
+          price: "€600",
+          description: "Tutto ciò di cui hai bisogno per scalare le tue colture 3D in modo riproducibile.",
+          isPopular: true,
+          features: [
+            "AlgiSTEM XF Kit completo",
+            "Soluzione di recovery ReleX",
+            "Supporto tecnico dedicato",
+            "Risparmio del 10%"
+          ]
+        }
+      ]
     },
     team: {
       title: "Il Team",
@@ -299,26 +355,26 @@ export const COPY: Record<Locale, SiteCopy> = {
       ],
     },
     market: {
-      title: "The Market",
-      subtitle: "A rapidly expanding sector",
+      title: "Performance",
+      subtitle: "By the numbers",
       stats: [
         {
-          value: "$1.9B",
-          label: "Global market 2024",
-          sublabel: "3D cell cultures",
+          value: "100%",
+          label: "Plant-based",
+          sublabel: "Zero animal components",
         },
         {
-          value: "$4.3B",
-          label: "Projected 2030",
-          sublabel: "CAGR 14–15%",
+          value: "100%",
+          label: "Xeno-free",
+          sublabel: "Total batch-to-batch reproducibility",
         },
         {
-          value: "16.5%",
-          label: "Annual growth",
-          sublabel: "Organoids & spheroids",
+          value: "20+",
+          label: "Cell lines",
+          sublabel: "Validated on iPSC, NPC, tumoral",
         },
       ],
-      businessModelTitle: "Business Model",
+      businessModelTitle: "Accelerate your research",
       pillars: [
         {
           title: "B2C / E-commerce",
@@ -356,6 +412,46 @@ export const COPY: Record<Locale, SiteCopy> = {
           description: "Economic sustainability",
         },
       ],
+    },
+    pricing: {
+      title: "Pricing",
+      subtitle: "Choose the optimal configuration for your lab",
+      cta: "Request a Quote",
+      tiers: [
+        {
+          name: "AlgiSTEM XF ReleX",
+          price: "€120",
+          description: "Our exclusive non-mechanical cell recovery solution.",
+          features: [
+            "Non-destructive recovery",
+            "Maintains cell integrity",
+            "No enzymatic damage"
+          ]
+        },
+        {
+          name: "AlgiSTEM XF Kit",
+          price: "€480",
+          description: "The xeno-free extracellular matrix for cell culture.",
+          features: [
+            "Functionalized alginate powder",
+            "Rehydration buffer",
+            "Crosslinker agent",
+            "Fully plant-derived"
+          ]
+        },
+        {
+          name: "Complete Bundle",
+          price: "€600",
+          description: "Everything you need to successfully scale your reproducible 3D cultures.",
+          isPopular: true,
+          features: [
+            "Full AlgiSTEM XF Kit",
+            "ReleX recovery solution",
+            "Dedicated technical support",
+            "10% package discount"
+          ]
+        }
+      ]
     },
     team: {
       title: "The Team",

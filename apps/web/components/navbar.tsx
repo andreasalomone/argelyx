@@ -1,97 +1,38 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
-import Image from "next/image"
-import { cn } from "@workspace/ui/lib/utils"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 import { useLocale } from "@/components/language-provider"
-import type { Locale } from "@/lib/copy"
-
-const SCROLL_THRESHOLD = 32
-const LOCALES: Locale[] = ["it", "en"]
+import { COPY } from "@/lib/copy"
 
 export function Navbar() {
   const { locale, setLocale } = useLocale()
-  const { resolvedTheme, setTheme } = useTheme()
-  const [scrolled, setScrolled] = useState(false)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    // Defer the setMounted to avoid synchronous setState warning
-    const timer = setTimeout(() => setMounted(true), 0)
-    return () => clearTimeout(timer)
-  }, [])
-
-  useEffect(() => {
-    function handleScroll() {
-      setScrolled(window.scrollY > SCROLL_THRESHOLD)
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  const copy = COPY[locale]
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 right-0 left-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-border/50 bg-background/80 backdrop-blur-xl"
-          : "bg-transparent"
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2">
-          <Image
-            src="/algelyx-icon.png"
-            alt="Algelyx"
-            width={28}
-            height={28}
-            className="rounded-md"
-          />
-          <span className="font-heading text-lg font-semibold tracking-tight">
-            algelyx
-          </span>
+    <nav className="fixed top-4 left-0 right-0 z-50 px-8 lg:px-16 py-3 flex items-center justify-between pointer-events-none">
+      <div className="flex items-center pointer-events-auto">
+        <img src="/algelyx-logo.png" alt="Argelyx Logo" className="h-10 object-contain invert brightness-0" />
+      </div>
+      <div className="hidden md:flex items-center liquid-glass rounded-full px-1.5 py-1 pointer-events-auto">
+        <Link href="#problem" className="px-3 py-2 text-sm font-medium text-white/90 font-body hover:text-white transition-colors">{copy.problem.title}</Link>
+        <Link href="#solution" className="px-3 py-2 text-sm font-medium text-white/90 font-body hover:text-white transition-colors">{copy.solution.title}</Link>
+        <Link href="#market" className="px-3 py-2 text-sm font-medium text-white/90 font-body hover:text-white transition-colors">{copy.market.title}</Link>
+        <Link href="#team" className="px-3 py-2 text-sm font-medium text-white/90 font-body hover:text-white transition-colors">{copy.team.title}</Link>
+        
+        <div className="mx-2 h-4 w-px bg-white/20" />
+        
+        <button 
+          onClick={() => setLocale(locale === "en" ? "it" : "en")}
+          className="px-2 py-2 text-xs font-semibold text-white/60 hover:text-white transition-colors font-body uppercase tracking-wider"
+          aria-label="Toggle language"
+        >
+          {locale === "en" ? "IT" : "EN"}
+        </button>
+
+        <a href="mailto:info@algelyx.com?subject=Inquiry" className="ml-2 flex items-center gap-1 bg-white text-black hover:bg-white/90 rounded-full px-3.5 py-1.5 text-sm transition-colors font-body font-medium">
+          {copy.hero.cta} <ArrowUpRight className="w-4 h-4" />
         </a>
-
-        {/* Controls */}
-        <div className="flex items-center gap-1">
-          {/* Language toggle */}
-          <div className="flex items-center rounded-lg bg-muted/50 p-0.5">
-            {LOCALES.map((loc) => (
-              <button
-                key={loc}
-                onClick={() => setLocale(loc)}
-                className={cn(
-                  "rounded-md px-2.5 py-1 text-xs font-medium tracking-wider uppercase transition-all",
-                  locale === loc
-                    ? "bg-primary text-primary-foreground shadow-sm"
-                    : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                {loc}
-              </button>
-            ))}
-          </div>
-
-          {/* Theme toggle */}
-          {mounted && (
-            <button
-              onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-              }
-              className="ml-1 rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground"
-              aria-label="Toggle theme"
-            >
-              {resolvedTheme === "dark" ? (
-                <Sun className="size-4" />
-              ) : (
-                <Moon className="size-4" />
-              )}
-            </button>
-          )}
-        </div>
       </div>
     </nav>
   )

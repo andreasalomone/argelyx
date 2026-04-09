@@ -1,25 +1,29 @@
-import { HeroSection } from "@/components/sections/hero-section"
-import { ProblemSection } from "@/components/sections/problem-section"
-import { SolutionSection } from "@/components/sections/solution-section"
-import { MarketSection } from "@/components/sections/market-section"
-import { RoadmapSection } from "@/components/sections/roadmap-section"
-import { TeamSection } from "@/components/sections/team-section"
-import { FooterSection } from "@/components/sections/footer-section"
 import { Navbar } from "@/components/navbar"
+import { HeroSection } from "@/components/sections/hero-section"
+import { StartSection } from "@/components/sections/start-section"
+import { FeaturesChess } from "@/components/sections/features-chess"
+import { FeaturesGrid } from "@/components/sections/features-grid"
+import { StatsSection } from "@/components/sections/stats-section"
+import { PricingSection } from "@/components/sections/pricing-section"
+import { TestimonialsSection } from "@/components/sections/testimonials-section"
+import { CtaFooter } from "@/components/sections/cta-footer"
 
 export default function Page() {
   return (
-    <>
-      <Navbar />
-      <main>
+    <div className="bg-black min-h-screen text-white">
+      <div className="relative z-10 w-full overflow-hidden">
+        <Navbar />
         <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <MarketSection />
-        <RoadmapSection />
-        <TeamSection />
-      </main>
-      <FooterSection />
-    </>
+        <div className="bg-black">
+          <StartSection />
+          <FeaturesChess />
+          <FeaturesGrid />
+          <StatsSection />
+          <PricingSection />
+          <TestimonialsSection />
+          <CtaFooter />
+        </div>
+      </div>
+    </div>
   )
 }
