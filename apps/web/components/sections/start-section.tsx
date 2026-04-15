@@ -4,6 +4,7 @@ import { VideoBackground } from "@/components/ui/video-background"
 import { motion } from "motion/react"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 export function StartSection() {
   const { locale } = useLocale()
@@ -16,6 +17,7 @@ export function StartSection() {
         fadeTop={200}
         fadeBottom={200}
       />
+      <BrandCrosses section="general" />
       
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl">
         <motion.div

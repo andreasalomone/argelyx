@@ -81,6 +81,8 @@ interface TeamMember {
   name: string
   role: string
   description: string
+  image: string
+  linkedin: string
 }
 
 interface TeamCopy {
@@ -270,24 +272,32 @@ export const COPY: Record<Locale, SiteCopy> = {
           role: "Scientific Advisor & Founder",
           description:
             "Prof.ssa Associata di Bioingegneria (UNITN), inventrice della tecnologia core con forti competenze farmaceutiche.",
+          image: "/team/annalisa_tirella.jpeg",
+          linkedin: "https://www.linkedin.com/in/annalisa-tirella-1602177/",
         },
         {
           name: "Francesca Pischedda",
           role: "CTO & Founder",
           description:
             "PhD e Senior Researcher, esperta in neuroscienze e validazione biologica R&D.",
+          image: "/team/francesca_pischedda.jpeg",
+          linkedin: "https://www.linkedin.com/in/francesca-pischedda-3723181a8/",
         },
         {
           name: "Stefano Ceci",
           role: "CEO & Founder",
           description:
             "Innovation Manager con 25+ anni di esperienza in tech transfer, venture building e open innovation.",
+          image: "/team/stefano_ceci.jpeg",
+          linkedin: "https://www.linkedin.com/in/cecistefano/",
         },
         {
           name: "Gianluca De Danieli",
           role: "Advisor IP & Fundraising",
           description:
             "Oltre 15 anni in sviluppo clinico e medical affairs in multinazionali pharma (Sanofi, Novartis).",
+          image: "/team/gianluca_de_danieli.jpeg",
+          linkedin: "https://www.linkedin.com/in/gianluca-de-danieli-md-phd-msc-53b1397/?skipRedirect=true",
         },
       ],
     },
@@ -462,24 +472,32 @@ export const COPY: Record<Locale, SiteCopy> = {
           role: "Scientific Advisor & Founder",
           description:
             "Associate Professor of Bioengineering (UNITN), inventor of the core technology with strong pharmaceutical expertise.",
+          image: "/team/annalisa_tirella.jpeg",
+          linkedin: "https://www.linkedin.com/in/annalisa-tirella-1602177/",
         },
         {
           name: "Francesca Pischedda",
           role: "CTO & Founder",
           description:
             "PhD and Senior Researcher, expert in neuroscience and R&D biological validation.",
+          image: "/team/francesca_pischedda.jpeg",
+          linkedin: "https://www.linkedin.com/in/francesca-pischedda-3723181a8/",
         },
         {
           name: "Stefano Ceci",
           role: "CEO & Founder",
           description:
             "Innovation Manager with 25+ years of experience in tech transfer, venture building and open innovation.",
+          image: "/team/stefano_ceci.jpeg",
+          linkedin: "https://www.linkedin.com/in/cecistefano/",
         },
         {
           name: "Gianluca De Danieli",
           role: "Advisor IP & Fundraising",
           description:
             "Over 15 years in clinical development and medical affairs at multinational pharma companies (Sanofi, Novartis).",
+          image: "/team/gianluca_de_danieli.jpeg",
+          linkedin: "https://www.linkedin.com/in/gianluca-de-danieli-md-phd-msc-53b1397/?skipRedirect=true",
         },
       ],
     },

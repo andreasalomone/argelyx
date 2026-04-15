@@ -1,22 +1,15 @@
 import type { Metadata } from "next"
-import { Instrument_Serif, Barlow, Geist_Mono } from "next/font/google"
+import { Barlow, Geist_Mono } from "next/font/google"
 import { cn } from "@workspace/ui/lib/utils"
 import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
 
 import "@workspace/ui/globals.css"
 
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: "italic",
-  variable: "--font-heading",
-})
-
 const barlow = Barlow({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  variable: "--font-body",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-barlow",
 })
 
 const geistMono = Geist_Mono({
@@ -25,9 +18,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Algelyx — Biocompatible extracellular matrices",
+  title: "Algelyx — Matrici extracellulari biocompatibili",
   description:
-    "Advanced plant-based hydrogels for 2D and 3D cell cultures. Xeno-free, animal-free extracellular matrices based on engineered alginates.",
+    "Idrogel avanzati di origine vegetale per colture cellulari 2D e 3D. Matrici xeno-free e animal-free basate su alginati ingegnerizzati.",
   openGraph: {
     title: "Algelyx — Biocompatible extracellular matrices",
     description:
@@ -49,12 +42,10 @@ export default function RootLayout({
       className={cn(
         "antialiased",
         barlow.variable,
-        instrumentSerif.variable,
         geistMono.variable,
-        "font-body"
       )}
     >
-      <body>
+      <body suppressHydrationWarning>
         <ThemeProvider defaultTheme="dark" forcedTheme="dark">
           <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>

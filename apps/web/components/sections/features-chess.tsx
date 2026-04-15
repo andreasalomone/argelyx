@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 export function FeaturesChess() {
   const { locale } = useLocale()
@@ -10,6 +11,7 @@ export function FeaturesChess() {
 
   return (
     <section className="py-24 px-6 md:px-12 lg:px-24 bg-black relative z-10" id="solution">
+      <BrandCrosses section="general" />
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-20" key={`header-${locale}`}>

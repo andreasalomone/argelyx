@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
 import { ChevronDown } from "lucide-react"
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 // Extracted into a subcomponent to cleanly manage individual expand/collapse states
 function MemberCard({ member, delay, locale }: { member: any; delay: number; locale: string }) {
@@ -63,6 +64,7 @@ export function TestimonialsSection() {
 
   return (
     <section className="py-24 px-6 md:px-12 lg:px-24 bg-black relative z-10" id="team">
+      <BrandCrosses section="general" />
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-16" key={`teamHeader-${locale}`}>
           <motion.div

@@ -1,46 +1,61 @@
 "use client"
 
-import { VideoBackground } from "@/components/ui/video-background"
 import { motion } from "motion/react"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 export function StatsSection() {
   const { locale } = useLocale()
   const copy = COPY[locale]
 
   return (
-    <section className="relative w-full flex items-center justify-center py-32 px-6" id="market">
-      <VideoBackground 
-        src="https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8"
-        saturate={0}
-        fadeTop={200}
-        fadeBottom={200}
-      />
-      
-      <motion.div
-        key={`stats-card-${locale}`}
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="relative z-10 w-full max-w-5xl liquid-glass rounded-3xl p-12 md:p-16 flex flex-col items-center"
-      >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-heading italic text-white">{copy.market.title}</h2>
-          <p className="text-white/60 font-body text-sm mt-2">{copy.market.subtitle}</p>
-        </div>
+    <section id="market" className="relative py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+      <BrandCrosses section="general" />
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="white-card rounded-[2.5rem] px-8 md:px-20 py-20 text-center"
+        >
+          {/* Header */}
+          <div className="mb-20" key={`stats-header-${locale}`}>
+            <h2 className="type-h2 text-[#1e1145] mb-4">
+              Performance
+            </h2>
+            <p className="type-label text-[#1e1145]/60">
+              {locale === "it" ? "Dati alla mano" : "The data"}
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center w-full">
-          {copy.market.stats.map((stat, idx) => (
-            <div className="flex flex-col gap-2" key={`${idx}-${locale}`}>
-              <span className="text-4xl md:text-5xl lg:text-6xl font-heading italic text-white leading-none">{stat.value}</span>
-              <span className="text-white/80 text-base md:text-lg font-body font-normal">{stat.label}</span>
-              <span className="text-white/50 text-sm font-body mt-1 uppercase tracking-wider">{stat.sublabel}</span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
+          {/* Stats 3-col - large numbers from mockup */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            {copy.market.stats.map((stat, idx) => (
+              <motion.div
+                key={`${idx}-${locale}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1, duration: 0.6 }}
+                className="flex flex-col items-center gap-1"
+              >
+                <span
+                  className="type-h2 text-[#1e1145] leading-none"
+                >
+                  {stat.value}
+                </span>
+                <span className="type-h3 text-[#1e1145] mt-4">
+                  {stat.label}
+                </span>
+                <p className="type-body text-[#1e1145]/50 max-w-[200px] mt-2">
+                  {stat.sublabel}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }

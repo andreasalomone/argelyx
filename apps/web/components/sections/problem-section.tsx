@@ -1,53 +1,60 @@
 "use client"
 
-import { Layers, ShieldOff, FlaskConical } from "lucide-react"
-import { SectionWrapper } from "@/components/section-wrapper"
+import { motion } from "motion/react"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
-import type { ReactNode } from "react"
-
-const ICONS: ReactNode[] = [
-  <Layers key="layers" className="size-6 text-accent-pink" />,
-  <ShieldOff key="shield" className="size-6 text-accent-pink" />,
-  <FlaskConical key="flask" className="size-6 text-accent-pink" />,
-]
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 export function ProblemSection() {
   const { locale } = useLocale()
-  const copy = COPY[locale].problem
+  const copy = COPY[locale]
 
   return (
-    <SectionWrapper id="problem" className="bg-surface">
-      <div className="mb-4 flex items-center gap-3">
-        <div className="h-1 w-10 rounded-full bg-gradient-to-r from-primary to-accent-pink" />
-        <span className="text-sm font-medium tracking-widest text-muted-foreground uppercase">
-          {copy.subtitle}
-        </span>
-      </div>
+    <section id="problem" className="relative py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+      <BrandCrosses section="general" />
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Section label */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="type-label text-white/60 mb-4"
+        >
+          {copy.problem.title}
+        </motion.p>
+        
+        {/* Main large heading matching mockup */}
+        <motion.h2
+          key={`problem-h2-${locale}`}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="type-h2 text-white mb-24"
+        >
+          {copy.problem.subtitle}
+        </motion.h2>
 
-      <h2 className="mb-14 font-heading text-3xl font-bold tracking-tight md:text-4xl">
-        {copy.title}
-      </h2>
-
-      <div className="grid gap-6 md:grid-cols-3">
-        {copy.points.map((point, index) => (
-          <article
-            key={point.title}
-            className="group rounded-2xl border border-border bg-surface-elevated p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[0_0_40px_oklch(0.496_0.265_302/0.08)]"
-            style={{ transitionDelay: `${index * 100}ms` }}
-          >
-            <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
-              {ICONS[index]}
-            </div>
-            <h3 className="mb-2 font-heading text-lg font-semibold">
-              {point.title}
-            </h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {point.description}
-            </p>
-          </article>
-        ))}
+        {/* 3-col points directly on the background */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 text-left">
+          {copy.problem.points.map((point, idx) => (
+            <motion.div
+              key={`${idx}-${locale}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15, duration: 0.6 }}
+              className="flex flex-col gap-4"
+            >
+              <h3 className="type-h3 text-white opacity-95">
+                {point.title}
+              </h3>
+              <p className="type-body text-white/80">
+                {point.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </SectionWrapper>
+    </section>
   )
 }

@@ -35,3 +35,12 @@ npm-debug.log*
 .DS_Store
 *.pem
 docs/
+
+# Tooling & Design Sources
+.gemini/
+.antigravity/
+*.ai
+*.psd
+*.fig
+designs/
+dist-ssr/

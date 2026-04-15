@@ -5,31 +5,81 @@
 @custom-variant dark (&:is(.dark *));
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
+@source "../../../packages/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
+/* ─── Panton Local Font ────────────────────────────────────────── */
+@font-face {
+  font-family: 'Panton';
+  src:
+    url('/fonts/Panton-Black.woff2') format('woff2'),
+    url('/fonts/Panton-Black.woff') format('woff'),
+    url('/fonts/Panton-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panton';
+  src:
+    url('/fonts/Panton-Regular.woff2') format('woff2'),
+    url('/fonts/Panton-Regular.woff') format('woff'),
+    url('/fonts/Panton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design Tokens ────────────────────────────────────────────── */
 @layer base {
   :root {
-    --background: 213 45% 67%;
+    /* Purple brand palette */
+    --purple-950: 259 65% 12%;
+    --purple-900: 259 65% 18%;
+    --purple-800: 259 65% 26%;
+    --purple-700: 261 62% 35%;
+    --purple-600: 263 58% 44%;
+    --purple-500: 265 54% 54%;
+    --purple-400: 267 80% 68%;
+    --purple-300: 269 90% 78%;
+    --violet-accent: 270 100% 72%;
+
+    /* Semantic tokens */
+    --background: 259 65% 12%;
     --foreground: 0 0% 100%;
-    --card: 213 45% 62%;
+    --card: 259 60% 18%;
     --card-foreground: 0 0% 100%;
     --primary: 0 0% 100%;
-    --primary-foreground: 213 45% 67%;
-    --secondary: 213 45% 72%;
+    --primary-foreground: 259 65% 18%;
+    --secondary: 261 62% 35%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 213 35% 60%;
-    --muted-foreground: 0 0% 100% / 0.7;
-    --accent: 213 45% 72%;
+    --muted: 259 50% 30%;
+    --muted-foreground: 0 0% 100% / 0.6;
+    --accent: 270 100% 72%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --border: 0 0% 100% / 0.2;
-    --input: 0 0% 100% / 0.2;
+    --border: 0 0% 100% / 0.15;
+    --input: 0 0% 100% / 0.15;
     --ring: 0 0% 100% / 0.3;
     --radius: 9999px;
-    --glass-bg: rgba(255, 255, 255, 0.12);
-    --glass-border: rgba(255, 255, 255, 0.25);
-    --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-    --glass-blur: 16px;
+
+    /* Glass system */
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+    --glass-blur: 20px;
+
+    /* Brand mesh gradient - editorial precision with magenta/pink glows */
+    --gradient-brand: 
+      radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.4) 0%, transparent 40%),
+      radial-gradient(circle at 85% 20%, rgba(236, 72, 153, 0.35) 0%, transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(67, 56, 202, 0.25) 0%, transparent 60%),
+      radial-gradient(circle at 80% 80%, rgba(192, 38, 211, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 20% 85%, rgba(99, 102, 241, 0.2) 0%, transparent 40%),
+      linear-gradient(135deg, #0f0529 0%, #1e1145 30%, #2e1065 60%, #1e1b4b 100%);
+    
+    --gradient-hero: var(--gradient-brand);
   }
 }
 
@@ -50,13 +100,13 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
-  
-  --font-heading: 'Instrument Serif', serif;
+
+  --font-heading: 'Panton', 'Barlow', sans-serif;
   --font-body: 'Barlow', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
 
   --animate-fade-in-up: fade-in-up 0.6s ease-out both;
   --animate-float: float 8s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
 }
 
 @layer base {
@@ -68,99 +118,189 @@
   }
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-brand);
+    min-height: 100vh;
+    background-attachment: fixed;
   }
 }
 
+/* ─── Keyframes ────────────────────────────────────────────────── */
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translate(-50%, -25%) scale(1);
-  }
-  50% {
-    transform: translate(-50%, -25%) scale(1.08);
-  }
-}
-
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 0.12;
-  }
-  50% {
-    opacity: 0.22;
-  }
-}
-
+/* ─── Component Utilities ──────────────────────────────────────── */
 @layer components {
+  /* Brand Cross Asset */
+  .brand-plus {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    filter: brightness(0) invert(1);
+    object-fit: contain;
+  }
+
+  /* liquid-glass: subtle frosted card on purple bg */
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.01);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: none;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
   }
-  .liquid-glass::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.45) 0%,
-      rgba(255, 255, 255, 0.15) 20%,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.15) 80%,
-      rgba(255, 255, 255, 0.45) 100%
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+
+  /* outline-card: thin border, transparent bg - used for features/pricing */
+  .outline-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    transition: border-color 0.2s, background 0.2s;
   }
-  
-  .liquid-glass-strong {
-    background: rgba(255, 255, 255, 0.01);
-    background-blend-mode: luminosity;
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    border: none;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
-      inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    position: relative;
-    overflow: hidden;
+  .outline-card:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.06);
   }
-  .liquid-glass-strong::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1.4px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.5) 0%,
-      rgba(255, 255, 255, 0.2) 20%,
-      rgba(255, 255, 255, 0) 40%,
-      rgba(255, 255, 255, 0) 60%,
-      rgba(255, 255, 255, 0.2) 80%,
-      rgba(255, 255, 255, 0.5) 100%
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+
+  /* white-card: light card for contrast sections (performance, team) */
+  .white-card {
+    background: #ffffff;
+    color: #1e1145;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+  }
+
+  /* pill-badge: small label pill */
+  .pill-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+
+  /* btn-primary: white filled CTA */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #ffffff;
+    color: #1e1145;
+    font-family: 'Panton', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-radius: 9999px;
+    padding: 0.875rem 2rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  /* btn-outline: ghost outline CTA */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: #ffffff;
+    font-family: 'Panton', sans-serif;
+    font-weight: 900;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    border-radius: 9999px;
+    padding: 0.875rem 2rem;
+    border: 2px solid #ffffff;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* floating-nav: white pill navigation */
+  .floating-nav {
+    background: #ffffff;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    color: #1e1145;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+}
+
+/* ─── Typography Scale (Utilities) ─────────────────────────────── */
+@utility type-hero {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.4rem, 7.2vw, 5.4rem);
+}
+
+@utility type-h2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+}
+
+@utility type-h3 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+@utility type-lead {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.5;
+  font-size: 1.125rem;
+}
+
+@utility type-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+}
+
+@utility type-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.7rem;
+}
+
+/* ─── Semantic Components ──────────────────────────────────────── */
+@layer components {
+  /* section-heading: large display text */
+  .section-heading {
+    @apply type-h2;
+    color: #ffffff;
+  }
+
+  /* section-heading-dark: for white-bg sections */
+  .section-heading-dark {
+    @apply type-h2;
+    color: #1e1145;
   }
 }

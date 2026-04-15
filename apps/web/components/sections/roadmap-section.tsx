@@ -3,13 +3,15 @@
 import { SectionWrapper } from "@/components/section-wrapper"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 export function RoadmapSection() {
   const { locale } = useLocale()
   const copy = COPY[locale].roadmap
 
   return (
-    <SectionWrapper id="roadmap">
+    <SectionWrapper id="roadmap" className="relative overflow-hidden">
+      <BrandCrosses section="general" />
       <h2 className="mb-16 font-heading text-3xl font-bold tracking-tight md:text-4xl">
         {copy.title}
       </h2>

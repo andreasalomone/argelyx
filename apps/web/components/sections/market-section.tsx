@@ -4,6 +4,7 @@ import { ShoppingCart, Building2, Microscope } from "lucide-react"
 import { SectionWrapper } from "@/components/section-wrapper"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
+import { BrandCrosses } from "@/components/ui/brand-crosses"
 import type { ReactNode } from "react"
 
 const PILLAR_ICONS: ReactNode[] = [
@@ -17,7 +18,8 @@ export function MarketSection() {
   const copy = COPY[locale].market
 
   return (
-    <SectionWrapper id="market" className="bg-surface">
+    <SectionWrapper id="market" className="bg-surface relative overflow-hidden">
+      <BrandCrosses section="general" />
       <div className="mb-4 flex items-center gap-3">
         <div className="h-1 w-10 rounded-full bg-gradient-to-r from-primary to-accent-pink" />
         <span className="text-sm font-medium tracking-widest text-muted-foreground uppercase">

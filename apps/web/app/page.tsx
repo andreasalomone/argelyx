@@ -1,29 +1,25 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/sections/hero-section"
-import { StartSection } from "@/components/sections/start-section"
-import { FeaturesChess } from "@/components/sections/features-chess"
+import { ProblemSection } from "@/components/sections/problem-section"
+import { SolutionSection } from "@/components/sections/solution-section"
 import { FeaturesGrid } from "@/components/sections/features-grid"
 import { StatsSection } from "@/components/sections/stats-section"
 import { PricingSection } from "@/components/sections/pricing-section"
-import { TestimonialsSection } from "@/components/sections/testimonials-section"
+import { TeamSection } from "@/components/sections/team-section"
 import { CtaFooter } from "@/components/sections/cta-footer"
 
 export default function Page() {
   return (
-    <div className="bg-black min-h-screen text-white">
-      <div className="relative z-10 w-full overflow-hidden">
-        <Navbar />
-        <HeroSection />
-        <div className="bg-black">
-          <StartSection />
-          <FeaturesChess />
-          <FeaturesGrid />
-          <StatsSection />
-          <PricingSection />
-          <TestimonialsSection />
-          <CtaFooter />
-        </div>
-      </div>
+    <div className="relative min-h-screen overflow-x-hidden" style={{ background: "var(--gradient-brand)" }}>
+      <Navbar />
+      <HeroSection />
+      <ProblemSection />
+      <SolutionSection />
+      <FeaturesGrid />
+      <StatsSection />
+      {/* <PricingSection /> */}
+      <TeamSection />
+      <CtaFooter />
     </div>
   )
 }
