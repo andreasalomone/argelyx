@@ -10,14 +10,14 @@ export function StatsSection() {
   const copy = COPY[locale]
 
   return (
-    <section id="market" className="relative py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="market" className="relative py-12 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
       <BrandCrosses section="general" />
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="white-card rounded-[2.5rem] px-8 md:px-20 py-20 text-center"
+          className="white-card rounded-[2.5rem] px-8 md:px-20 py-12 md:py-20 text-center"
         >
           {/* Header */}
           <div className="mb-20" key={`stats-header-${locale}`}>

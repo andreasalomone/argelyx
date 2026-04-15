@@ -249,7 +249,7 @@
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  font-size: clamp(2.1rem, 9vw, 5.4rem);
+  font-size: clamp(2.65rem, 11.25vw, 5.4rem);
 }
 
 @utility type-h2 {

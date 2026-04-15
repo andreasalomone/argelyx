@@ -10,7 +10,7 @@ export function FeaturesGrid() {
   const copy = COPY[locale]
 
   return (
-    <section id="science" className="relative py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="science" className="relative py-12 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden">
       <BrandCrosses section="general" />
       <div className="max-w-6xl mx-auto">
         {/* Header */}

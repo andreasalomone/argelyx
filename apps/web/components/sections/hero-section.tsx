@@ -14,7 +14,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-28 md:pt-32 pb-20"
+      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-24 md:pt-32 pb-12 md:pb-20"
       id="home"
     >
       {/* Decorative Crosses from mockup */}

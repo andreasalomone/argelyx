@@ -101,11 +101,11 @@ export function TeamSection() {
   const copy = COPY[locale]
 
   return (
-    <section id="team" className="relative py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="team" className="relative py-16 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
       <BrandCrosses section="general" />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-24" key={`team-header-${locale}`}>
+        <div className="flex flex-col items-center text-center mb-12 md:mb-24" key={`team-header-${locale}`}>
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}

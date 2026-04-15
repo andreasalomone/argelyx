@@ -10,7 +10,7 @@ export function ProblemSection() {
   const copy = COPY[locale]
 
   return (
-    <section id="problem" className="relative py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="problem" className="relative py-16 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
       <BrandCrosses section="general" />
       <div className="max-w-6xl mx-auto text-center">
         {/* Section label */}
@@ -29,7 +29,7 @@ export function ProblemSection() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="type-h2 text-white mb-24"
+          className="type-h2 text-white mb-12 md:mb-24"
         >
           {copy.problem.subtitle}
         </motion.h2>

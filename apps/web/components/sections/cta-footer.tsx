@@ -13,7 +13,7 @@ export function CtaFooter() {
   const copy = COPY[locale]
 
   return (
-    <section className="relative pt-40 pb-16 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section className="relative pt-20 md:pt-40 pb-12 md:pb-16 px-6 md:px-12 lg:px-20 overflow-hidden">
       {/* Decorative Crosses from mockup */}
       <BrandCrosses section="footer" />
 
@@ -59,7 +59,7 @@ export function CtaFooter() {
       </div>
 
       {/* Footer bar */}
-      <div className="relative z-10 mt-40 pt-10 border-t border-white/10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+      <div className="relative z-10 mt-20 md:mt-40 pt-10 border-t border-white/10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
         <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
           <Image
             src="/logo.svg"

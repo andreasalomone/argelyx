@@ -10,7 +10,7 @@ export function SolutionSection() {
   const copy = COPY[locale]
 
   return (
-    <section id="solution" className="relative py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <section id="solution" className="relative py-16 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
       <BrandCrosses section="general" />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
