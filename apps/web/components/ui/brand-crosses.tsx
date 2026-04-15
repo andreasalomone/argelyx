@@ -36,7 +36,7 @@ interface BrandCrossesContainerProps {
 export function BrandCrosses({ section }: BrandCrossesContainerProps) {
   if (section === "hero") {
     return (
-      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden hidden md:block">
         {/* Top Left - Moved in from edges to avoid truncation */}
         <BrandCross 
           size={320} 

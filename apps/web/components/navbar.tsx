@@ -21,24 +21,24 @@ export function Navbar() {
   return (
     <>
       {/* Logo - Top Left */}
-      <div className="fixed top-6 left-8 z-50">
+      <div className="fixed top-4 left-6 md:top-6 md:left-8 z-50">
         <Link href="/">
           <Image
             src="/logo.svg"
             alt="Algelyx"
             width={120}
             height={32}
-            className="brightness-0 invert h-7 md:h-8 w-auto"
+            className="brightness-0 invert h-6 md:h-8 w-auto px-1 md:px-0"
           />
         </Link>
       </div>
 
       {/* Floating Pill Nav - Top Right/Center */}
-      <div className="fixed top-6 left-1/2 -translate-x-1/2 md:left-auto md:right-8 md:translate-x-0 z-50">
+      <div className="fixed top-4 right-6 md:top-6 md:right-8 z-50">
         <motion.nav
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="floating-nav px-6 py-2"
+          className="floating-nav px-4 py-1.5 md:px-6 md:py-2"
         >
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
@@ -57,7 +57,7 @@ export function Navbar() {
           {/* Language Toggle */}
           <button
             onClick={() => setLocale(locale === "en" ? "it" : "en")}
-            className="text-[13px] font-body font-black text-[#1e1145] hover:text-purple-600 uppercase transition-colors"
+            className="text-[12px] md:text-[13px] font-body font-black text-[#1e1145] hover:text-purple-600 uppercase transition-colors"
           >
             {locale === "en" ? "IT" : "EN"}
           </button>
@@ -69,7 +69,7 @@ export function Navbar() {
             href="mailto:info@algelyx.com"
             className="text-[#1e1145] hover:text-purple-600 transition-colors"
           >
-            <Mail className="w-5 h-5" strokeWidth={2.5} />
+            <Mail className="w-4 h-4 md:w-5 md:h-5 " strokeWidth={2.5} />
           </Link>
         </motion.nav>
       </div>

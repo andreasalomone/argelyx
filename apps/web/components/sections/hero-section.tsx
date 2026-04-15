@@ -14,7 +14,7 @@ export function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-32 pb-20"
+      className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden pt-28 md:pt-32 pb-20"
       id="home"
     >
       {/* Decorative Crosses from mockup */}
@@ -34,7 +34,7 @@ export function HeroSection() {
               alt="Algelyx Logo" 
               width={240} 
               height={60} 
-              className="brightness-0 invert h-7 md:h-12 w-auto"
+              className="brightness-0 invert h-6 md:h-12 w-auto"
             />
           </div>
         </motion.div>
@@ -45,7 +45,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="type-hero text-white max-w-5xl"
+          className="type-hero text-white max-w-[90vw] md:max-w-5xl"
         >
           {copy.hero.tagline}
         </motion.h1>

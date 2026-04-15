@@ -117,7 +117,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
     background: var(--gradient-brand);
     min-height: 100vh;
     background-attachment: fixed;
@@ -249,7 +249,7 @@
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
-  font-size: clamp(2.4rem, 7.2vw, 5.4rem);
+  font-size: clamp(2.1rem, 9vw, 5.4rem);
 }
 
 @utility type-h2 {
@@ -257,7 +257,7 @@
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.01em;
-  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-size: clamp(1.65rem, 6vw, 4.5rem);
 }
 
 @utility type-h3 {
@@ -272,7 +272,7 @@
   font-family: var(--font-body);
   font-weight: 700;
   line-height: 1.5;
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 3.5vw, 1.125rem);
 }
 
 @utility type-body {
