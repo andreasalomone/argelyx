@@ -269,7 +269,7 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
-          role: "Scientific Advisor & Founder",
+          role: "Scientific Advisor & Co-Founder",
           description:
             "Prof.ssa Associata di Bioingegneria (UNITN), inventrice della tecnologia core con forti competenze farmaceutiche.",
           image: "/team/annalisa_tirella.jpeg",
@@ -277,7 +277,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Francesca Pischedda",
-          role: "CTO & Founder",
+          role: "CTO & Co-Founder",
           description:
             "PhD e Senior Researcher, esperta in neuroscienze e validazione biologica R&D.",
           image: "/team/francesca_pischedda.jpeg",
@@ -285,7 +285,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Stefano Ceci",
-          role: "CEO & Founder",
+          role: "CEO & Co-Founder",
           description:
             "Innovation Manager con 25+ anni di esperienza in tech transfer, venture building e open innovation.",
           image: "/team/stefano_ceci.jpeg",
@@ -293,7 +293,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Gianluca De Danieli",
-          role: "Advisor IP & Fundraising",
+          role: "Advisor IP, Fundraising & Co-Founder",
           description:
             "Oltre 15 anni in sviluppo clinico e medical affairs in multinazionali pharma (Sanofi, Novartis).",
           image: "/team/gianluca_de_danieli.jpeg",
@@ -469,7 +469,7 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
-          role: "Scientific Advisor & Founder",
+          role: "Scientific Advisor & Co-Founder",
           description:
             "Associate Professor of Bioengineering (UNITN), inventor of the core technology with strong pharmaceutical expertise.",
           image: "/team/annalisa_tirella.jpeg",
@@ -477,7 +477,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Francesca Pischedda",
-          role: "CTO & Founder",
+          role: "CTO & Co-Founder",
           description:
             "PhD and Senior Researcher, expert in neuroscience and R&D biological validation.",
           image: "/team/francesca_pischedda.jpeg",
@@ -485,7 +485,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Stefano Ceci",
-          role: "CEO & Founder",
+          role: "CEO & Co-Founder",
           description:
             "Innovation Manager with 25+ years of experience in tech transfer, venture building and open innovation.",
           image: "/team/stefano_ceci.jpeg",
@@ -493,7 +493,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Gianluca De Danieli",
-          role: "Advisor IP & Fundraising",
+          role: "Advisor IP, Fundraising & Co-Founder",
           description:
             "Over 15 years in clinical development and medical affairs at multinational pharma companies (Sanofi, Novartis).",
           image: "/team/gianluca_de_danieli.jpeg",
