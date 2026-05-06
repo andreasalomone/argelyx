@@ -44,3 +44,9 @@ docs/
 *.fig
 designs/
 dist-ssr/
+
+# OS
+.DS_Store
+
+# Editor scratch
+*.tmp
