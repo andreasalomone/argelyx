@@ -1,5 +1,10 @@
 "use client"
 
+/**
+ * @deprecated Unused as of 2026-05-06 (Algelyx rebrand).
+ * Delete by 2026-09-01 if still unrouted.
+ */
+
 import Image from "next/image"
 import { MapPin, Mail, Globe } from "lucide-react"
 import { useLocale } from "@/components/language-provider"
