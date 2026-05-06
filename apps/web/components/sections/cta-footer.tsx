@@ -1,10 +1,10 @@
 "use client"
 
 import { motion } from "motion/react"
-import Image from "next/image"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
 import { BrandCrosses } from "@/components/ui/brand-crosses"
+import { BrandLogo } from "@/components/ui/brand-logo"
 
 const CURRENT_YEAR = new Date().getFullYear()
 
@@ -61,12 +61,10 @@ export function CtaFooter() {
       {/* Footer bar */}
       <div className="relative z-10 mt-20 md:mt-40 pt-10 border-t border-white/10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
         <div className="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-          <Image
-            src="/logo.svg"
-            alt="Algelyx"
-            width={120}
-            height={32}
-            className="brightness-0 invert opacity-60"
+          <BrandLogo
+            variant="mono-neg"
+            kind="horizontal"
+            className="h-8 w-auto opacity-60"
           />
           <div className="flex flex-col gap-1">
             <p className="text-white/40 font-body text-[11px] font-bold uppercase tracking-widest">
