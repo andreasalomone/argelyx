@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="algelyx-logo-livello" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" id="algelyx-logo-mono-pos-livello" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 362.8 85" style="enable-background:new 0 0 362.8 85;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#4C1D95;}
-	.st1{fill:url(#algelyx-logo-grad1);}
-	.st2{fill:none;stroke:#FF0000;stroke-width:0.25;stroke-miterlimit:10;}
 </style>
 <g>
 	<g>
@@ -41,14 +39,9 @@
 			c0.7,0.3,1.3,1,2,2.1l6,9.2l5.8-9.2c0.8-1.1,1.4-1.8,2-2.1c0.6-0.3,1.6-0.4,3.2-0.4H359.1z"/>
 	</g>
 	<g>
-		<linearGradient id="algelyx-logo-grad1" gradientUnits="userSpaceOnUse" x1="3.1134" y1="81.9257" x2="39.4063" y2="45.6328">
-			<stop  offset="0" style="stop-color:#4C1D95"/>
-			<stop  offset="0.5" style="stop-color:#A78BFA"/>
-			<stop  offset="1" style="stop-color:#FB7185"/>
-		</linearGradient>
-		<path class="st1" d="M42.5,53.1c0-5.9-4.8-10.6-10.6-10.6c-2.9,0-5.6,1.2-7.5,3.1L3.1,66.9l0,0C1.2,68.8,0,71.5,0,74.4
+		<path class="st0" d="M42.5,53.1c0-5.9-4.8-10.6-10.6-10.6c-2.9,0-5.6,1.2-7.5,3.1L3.1,66.9l0,0C1.2,68.8,0,71.5,0,74.4
 			C0,80.3,4.8,85,10.6,85c2.9,0,5.6-1.2,7.5-3.1l21.2-21.2C41.3,58.8,42.5,56.1,42.5,53.1z"/>
-		<path class="st2" d="M53.1,31.9"/>
+		<path class="st0" d="M53.1,31.9"/>
 		<path class="st0" d="M60.7,45.6C60.7,45.6,60.7,45.6,60.7,45.6l-3.1-3.1l3.1-3.1l21.3-21.3c1.9-1.9,3.1-4.6,3.1-7.5
 			C85,4.8,80.3,0,74.4,0c-2.9,0-5.6,1.2-7.5,3.1L45.6,24.4l-3.1,3.1l-3.1-3.1c0,0,0,0,0,0L18.1,3.1C16.2,1.2,13.6,0,10.6,0
 			C4.8,0,0,4.8,0,10.6c0,2.9,1.2,5.6,3.1,7.5v0l21.3,21.3l0,0l0.5,0.5c2.1-1.1,4.6-1.8,7.1-1.8c8.3,0,15,6.7,15,15
