@@ -64,7 +64,7 @@ export function ResearchSection() {
         </div>
 
         {/* Always render the list so DOIs land in server HTML for crawlers + AI. */}
-        {/* Visibility is purely visual; semantics stay accurate via aria-hidden. */}
+        {/* Visibility is purely visual; semantics stay accurate via inert. */}
         <motion.div
           id={listId}
           inert={!isOpen ? true : undefined}

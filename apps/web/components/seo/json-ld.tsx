@@ -70,7 +70,6 @@ export function JsonLd() {
   return (
     <script
       type="application/ld+json"
-      // eslint-disable-next-line react/no-danger -- safe: no user input is interpolated
       dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
     />
   )
