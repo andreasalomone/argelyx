@@ -15,7 +15,7 @@ export function SolutionSection() {
       <BrandCrosses section="general" />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-24" key={`sol-header-${locale}`}>
+        <div className="flex flex-col items-center text-center mb-20 md:mb-24" key={`sol-header-${locale}`}>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,6 +42,49 @@ export function SolutionSection() {
           >
             {copy.solution.productDescription}
           </motion.p>
+        </div>
+
+        {/* Properties + Applications: two-column bullet rows */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-20 md:mb-32" key={`sol-bullets-${locale}`}>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-4"
+          >
+            <h3 className="type-h3 text-white/95">
+              {copy.solution.properties.title}
+            </h3>
+            <ul className="space-y-2">
+              {copy.solution.properties.items.map((item) => (
+                <li key={item} className="type-body text-white/80 flex gap-2 leading-snug">
+                  <span aria-hidden className="text-brand-coral mt-0.5 shrink-0">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-4"
+          >
+            <h3 className="type-h3 text-white/95">
+              {copy.solution.applications.title}
+            </h3>
+            <ul className="space-y-2">
+              {copy.solution.applications.items.map((item) => (
+                <li key={item} className="type-body text-white/80 flex gap-2 leading-snug">
+                  <span aria-hidden className="text-brand-coral mt-0.5 shrink-0">•</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
 
         {/* Row 1: text left, image right */}
@@ -90,7 +133,7 @@ export function SolutionSection() {
             className="flex-[0.8] space-y-6"
           >
             <h3 className="type-h3 text-white/95">
-              AlgiSTEM XF ReleX
+              {copy.solution.usps[2].title}
             </h3>
             <p className="type-lead text-white/75">
               {copy.solution.usps[2].description}
