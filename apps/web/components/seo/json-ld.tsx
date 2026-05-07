@@ -13,12 +13,13 @@ const organization = {
     "Bioengineered plant-based alginate hydrogels for 2D and 3D cell culture — xeno-free, animal-free extracellular matrices.",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Via Sommarive 9",
+    streetAddress: "Via alla Cascata 23",
     postalCode: "38123",
     addressLocality: "Trento",
     addressRegion: "TN",
     addressCountry: "IT",
   },
+  vatID: "IT02838690226",
   contactPoint: [
     {
       "@type": "ContactPoint",
