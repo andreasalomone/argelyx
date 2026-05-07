@@ -240,11 +240,14 @@
   }
 
   .floating-nav {
-    background: #ffffff;
+    /* Translucent + blur so content scrolling underneath stays legible */
+    background: rgb(255 255 255 / 0.78);
+    backdrop-filter: saturate(140%) blur(18px);
+    -webkit-backdrop-filter: saturate(140%) blur(18px);
     border-radius: var(--radius-pill);
     padding: 0.5rem 1rem;
     color: var(--brand-purple);
-    box-shadow: 0 8px 32px rgb(0 0 0 / 0.15);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
     display: flex;
     align-items: center;
     gap: 1.5rem;
