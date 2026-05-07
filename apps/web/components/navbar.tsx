@@ -19,6 +19,7 @@ export function Navbar() {
     { name: locale === "it" ? "La Soluzione" : "The Solution", href: "#solution" },
     { name: locale === "it" ? "La Performance" : "Performance", href: "#market" },
     { name: locale === "it" ? "Il Team" : "The Team", href: "#team" },
+    { name: locale === "it" ? "Ricerca" : "Research", href: "#research" },
   ]
 
   // Body scroll lock + Esc key handling while drawer is open
