@@ -76,8 +76,8 @@ export function CtaFooter() {
           </div>
         </div>
         <div className="flex items-center gap-8 text-white/40 font-body text-[11px] font-bold uppercase tracking-widest">
-          <a href="#" className="hover:text-white transition-colors">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms</a>
+          <a href="/legal/privacy" className="hover:text-white transition-colors">Privacy</a>
+          <a href="/legal/terms" className="hover:text-white transition-colors">Terms</a>
           <a href="mailto:info@algelyx.com" className="hover:text-white transition-colors lowercase">info@algelyx.com</a>
         </div>
       </div>
