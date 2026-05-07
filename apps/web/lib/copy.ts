@@ -337,7 +337,7 @@ export const COPY: Record<Locale, SiteCopy> = {
           name: "Francesca Pischedda",
           description:
             "PhD e Senior Researcher, esperta in neuroscienze e validazione biologica R&D.",
-          image: "/team/francesca_pischedda.jpeg",
+          image: "/team/francesca_pischedda.jpg",
           linkedin: "https://www.linkedin.com/in/francesca-pischedda-3723181a8/",
         },
         {
@@ -580,7 +580,7 @@ export const COPY: Record<Locale, SiteCopy> = {
           name: "Francesca Pischedda",
           description:
             "PhD and Senior Researcher, expert in neuroscience and R&D biological validation.",
-          image: "/team/francesca_pischedda.jpeg",
+          image: "/team/francesca_pischedda.jpg",
           linkedin: "https://www.linkedin.com/in/francesca-pischedda-3723181a8/",
         },
         {
