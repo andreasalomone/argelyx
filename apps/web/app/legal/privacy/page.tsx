@@ -26,9 +26,8 @@ export default function PrivacyPage() {
         >
           info@algelyx.com
         </a>
-        . Algelyx ha sede in Via Sommarive 9, 38123 Trento (TN), Italia,
-        presso il Dipartimento di Ingegneria Industriale dell&apos;Università
-        degli Studi di Trento.
+        . Algelyx ha sede legale in Via alla Cascata 23, 38123 Trento (TN),
+        Italia (P. IVA 02838690226 — REA TN 253541).
       </p>
       <p className="type-body opacity-60 text-sm">
         Ultimo aggiornamento: {new Date().toISOString().slice(0, 10)}.
