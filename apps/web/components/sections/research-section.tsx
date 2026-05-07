@@ -67,7 +67,7 @@ export function ResearchSection() {
         {/* Visibility is purely visual; semantics stay accurate via aria-hidden. */}
         <motion.div
           id={listId}
-          aria-hidden={!isOpen}
+          inert={!isOpen ? true : undefined}
           initial={false}
           animate={{
             height: isOpen ? "auto" : 0,
