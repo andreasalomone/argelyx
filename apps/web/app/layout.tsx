@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     "Idrogel avanzati di origine vegetale per colture cellulari 2D e 3D. Matrici xeno-free e animal-free basate su alginati ingegnerizzati.",
   metadataBase: new URL("https://www.algelyx.com"),
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -17,11 +20,19 @@ export const metadata: Metadata = {
     apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
   },
   openGraph: {
-    title: "Algelyx — Biocompatible extracellular matrices",
+    title: "Algelyx — Matrici extracellulari biocompatibili",
     description:
-      "Advanced plant-based hydrogels that faithfully replicate human tissues, overcoming the ethical and technical limitations of cell cultures and animal testing.",
+      "Idrogel avanzati di origine vegetale per colture cellulari 2D e 3D. Matrici xeno-free e animal-free basate su alginati ingegnerizzati.",
     type: "website",
     url: "https://www.algelyx.com",
+    locale: "it_IT",
+    siteName: "Algelyx",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Algelyx — Matrici extracellulari biocompatibili",
+    description:
+      "Idrogel avanzati di origine vegetale per colture cellulari 2D e 3D. Matrici xeno-free e animal-free basate su alginati ingegnerizzati.",
   },
 }
 
