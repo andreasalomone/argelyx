@@ -109,6 +109,7 @@ interface ResearchCopy {
 
 interface FooterCopy {
   address: string
+  vat: string
   rights: string
 }
 
@@ -362,8 +363,8 @@ export const COPY: Record<Locale, SiteCopy> = {
       collapseLabel: "Nascondi le pubblicazioni",
     },
     footer: {
-      address:
-        "Dipartimento di Ingegneria Industriale (UNITN), Via Sommarive 9, 38123 Trento (TN)",
+      address: "Sede legale — Via alla Cascata 23, 38123 Trento (TN)",
+      vat: "P. IVA 02838690226 — REA TN 253541",
       rights: "Tutti i diritti riservati.",
     },
   },
@@ -605,8 +606,8 @@ export const COPY: Record<Locale, SiteCopy> = {
       collapseLabel: "Hide publications",
     },
     footer: {
-      address:
-        "Department of Industrial Engineering (UNITN), Via Sommarive 9, 38123 Trento (TN)",
+      address: "Registered office — Via alla Cascata 23, 38123 Trento (TN)",
+      vat: "VAT 02838690226 — REA TN 253541",
       rights: "All rights reserved.",
     },
   },
