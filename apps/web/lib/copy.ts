@@ -9,17 +9,24 @@ interface HeroCopy {
 interface ProblemPoint {
   title: string
   description: string
+  bullets?: readonly string[]
 }
 
 interface ProblemCopy {
   title: string
   subtitle: string
+  bulletsLabel: string
   points: readonly [ProblemPoint, ProblemPoint, ProblemPoint]
 }
 
 interface USP {
   title: string
   description: string
+}
+
+interface BulletList {
+  title: string
+  items: readonly string[]
 }
 
 interface SolutionCopy {
@@ -30,6 +37,8 @@ interface SolutionCopy {
   kitDescription: string
   uspLabel: string
   usps: readonly [USP, USP, USP]
+  properties: BulletList
+  applications: BulletList
 }
 
 interface MarketStat {
@@ -79,7 +88,6 @@ interface RoadmapCopy {
 
 interface TeamMember {
   name: string
-  headline: string
   description: string
   image: string
   linkedin: string
@@ -119,29 +127,48 @@ export const COPY: Record<Locale, SiteCopy> = {
   it: {
     hero: {
       tagline:
-        "Matrici extracellulari biocompatibili per colture cellulari 2D e 3D",
+        "Matrici extracellulari biocompatibili per colture cellulari",
       pitch:
-        "Idrogel avanzati di origine vegetale che replicano fedelmente i tessuti umani, superando i limiti etici e tecnici delle attuali colture cellulari e dei test sugli animali.",
+        "Idrogel bioingegnerizzati di origine vegetale, riproducono in modo accurato le proprietà strutturali e funzionali dei tessuti umani e offrono un'alternativa scalabile ed eticamente sostenibile alle colture cellulari tradizionali e alla sperimentazione animale.",
       cta: "Scopri di più",
     },
     problem: {
       title: "Il Problema",
       subtitle: "Perché ora?",
+      bulletsLabel: "I principali limiti",
       points: [
         {
-          title: "La biologia non è piatta",
+          title: "Le colture 2D non riproducono i tessuti umani",
           description:
-            "Le tradizionali colture 2D su substrati rigidi in plastica non simulano correttamente l'architettura tridimensionale dei tessuti umani e delle malattie.",
+            "Le colture cellulari bidimensionali su substrati rigidi non riproducono fedelmente l'organizzazione spaziale, le interazioni cellula-cellula e cellula-matrice, né la complessità fisiopatologica dei tessuti umani.",
+          bullets: [
+            "ambiente non fisiologico → rigidità e planarità alterano il comportamento cellulare (meccanotrasduzione)",
+            "perdita di funzioni e fenotipo originali",
+            "assenza di struttura tridimensionale e interazioni realistiche",
+            "distribuzione non realistica di nutrienti e farmaci",
+            "scarsa predittività nei test farmacologici",
+            "polarità cellulare alterata",
+            "interazioni semplificate con la matrice extracellulare",
+          ],
         },
         {
-          title: "I modelli animali sono superati",
+          title: "I modelli animali mostrano limiti strutturali",
           description:
-            "I test in vivo subiscono forti limitazioni legislative europee e americane, sollevano problemi etici, sono costosi e spesso poco predittivi per l'uomo.",
+            "Gli studi in vivo sono soggetti a stringenti restrizioni normative a livello internazionale, presentano criticità etiche, implicano costi elevati e offrono una traslazionalità limitata.",
         },
         {
-          title: "I limiti dello standard attuale",
+          title: "I limiti dello standard attuale di origine animale",
           description:
-            "Gli idrogel dominanti (Matrigel) sono di origine animale: scarsa riproducibilità batch-to-batch, incompatibilità clinica e nessun recupero non distruttivo delle cellule.",
+            "Gli idrogel più diffusamente impiegati, di origine animale, potrebbero presentare elevata variabilità inter-lotto, limitata traslabilità clinica e non consentono il recupero non distruttivo delle cellule coltivate.",
+          bullets: [
+            "variabilità biologica → composizione non sempre uniforme tra lotti",
+            "rischio immunogenico → possono attivare risposte del sistema immunitario",
+            "possibile trasmissione di patogeni → se non purificati adeguatamente",
+            "scarsa controllabilità delle proprietà meccaniche e di degradazione",
+            "limitata stabilità → degradazione rapida in condizioni fisiologiche",
+            "criticità etiche legate all'origine animale",
+            "dipendenza da fonti non sostenibili",
+          ],
         },
       ],
     },
@@ -158,19 +185,36 @@ export const COPY: Record<Locale, SiteCopy> = {
         {
           title: "Modulabilità",
           description:
-            "Rigidità meccanica calibrabile in base ai valori target di diversi tessuti umani — cervello, polmone, fegato.",
+            "Proprietà biomeccaniche modulabili per adattarsi ai range fisiopatologici dei principali tessuti umani.",
         },
         {
           title: "Riproducibilità e Sostenibilità",
           description:
-            "Ricetta interamente vegetale. Coerenza batch-to-batch garantita e pieno rispetto dei criteri ESG.",
+            "Ricetta bioingegnerizzata e interamente a base vegetale. Coerenza batch-to-batch garantita e pieno rispetto dei criteri ESG.",
         },
         {
           title: "AlgiSTEM XF ReleX",
           description:
-            "Recupero non meccanico e non distruttivo di cellule, organoidi e sferoidi dalla matrice. Un vantaggio unico, non offerto dai competitor.",
+            "Sistema per il recupero non distruttivo di cellule, organoidi e tessuti dalla matrice, garantendo elevata preservazione dell'integrità biologica. Una caratteristica propria degli alginati rispetto alle soluzioni attualmente presenti sul mercato.",
         },
       ],
+      properties: {
+        title: "Gli alginati bioingegnerizzati hanno alcune proprietà molto interessanti",
+        items: [
+          "elevata capacità di ritenzione idrica",
+          "mimetismo dei tessuti biologici",
+          "possibilità di incorporare molecole attive",
+          "sostenibilità (derivano da biomassa rinnovabile)",
+        ],
+      },
+      applications: {
+        title: "Le principali applicazioni in Biomedicina",
+        items: [
+          "ingegneria tissutale (scaffold per cellule)",
+          "medicazioni avanzate per ferite",
+          "rilascio controllato di farmaci",
+        ],
+      },
     },
     market: {
       title: "Performance",
@@ -178,7 +222,7 @@ export const COPY: Record<Locale, SiteCopy> = {
       stats: [
         {
           value: "100%",
-          label: "Vegetale",
+          label: "di origine Vegetale",
           sublabel: "Privo di componenti animali",
         },
         {
@@ -189,7 +233,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         {
           value: "20+",
           label: "Linee testate",
-          sublabel: "Validato su linee cellulari e modelli 3D derivati",
+          sublabel: "Validato su linee cellulari e modelli tridimensionali (3D) derivati",
         },
       ],
       businessModelTitle: "Accelera la tua ricerca",
@@ -277,8 +321,6 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
-          headline:
-            "Prof.ssa Associata di Bioingegneria, UNITN. Inventrice della tecnologia core.",
           description:
             "Prof.ssa Associata di Bioingegneria (UNITN), inventrice della tecnologia core con forti competenze farmaceutiche.",
           image: "/team/annalisa_tirella.jpeg",
@@ -286,8 +328,6 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Francesca Pischedda",
-          headline:
-            "PhD, Senior Researcher in neuroscienze e validazione biologica.",
           description:
             "PhD e Senior Researcher, esperta in neuroscienze e validazione biologica R&D.",
           image: "/team/francesca_pischedda.jpeg",
@@ -295,8 +335,6 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Stefano Ceci",
-          headline:
-            "Innovation Manager, 25+ anni in tech transfer e venture building.",
           description:
             "Innovation Manager con 25+ anni di esperienza in tech transfer, venture building e open innovation.",
           image: "/team/stefano_ceci.jpeg",
@@ -304,8 +342,6 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Gianluca De Danieli",
-          headline:
-            "MD-PhD, 15+ anni in sviluppo clinico (Sanofi, Novartis).",
           description:
             "Oltre 15 anni in sviluppo clinico e medical affairs in multinazionali pharma (Sanofi, Novartis).",
           image: "/team/gianluca_de_danieli.jpeg",
@@ -329,29 +365,48 @@ export const COPY: Record<Locale, SiteCopy> = {
   en: {
     hero: {
       tagline:
-        "Biocompatible extracellular matrices for 2D and 3D cell cultures",
+        "Biocompatible extracellular matrices for cell cultures",
       pitch:
-        "Advanced plant-based hydrogels that faithfully replicate human tissues, overcoming the ethical and technical limitations of current cell cultures and animal testing.",
+        "Bioengineered plant-based hydrogels that accurately reproduce the structural and functional properties of human tissues and offer a scalable, ethically sustainable alternative to traditional cell cultures and animal testing.",
       cta: "Learn more",
     },
     problem: {
       title: "The Problem",
       subtitle: "Why now?",
+      bulletsLabel: "Key limitations",
       points: [
         {
-          title: "Biology isn't flat",
+          title: "2D cultures fail to reproduce human tissues",
           description:
-            "Traditional 2D cultures on rigid plastic substrates fail to simulate the three-dimensional architecture of human tissues and diseases.",
+            "Two-dimensional cell cultures on rigid substrates fail to faithfully reproduce the spatial organization, cell-cell and cell-matrix interactions, or the physiopathological complexity of human tissues.",
+          bullets: [
+            "non-physiological environment → stiffness and planarity alter cellular behavior (mechanotransduction)",
+            "loss of original functions and phenotype",
+            "absence of three-dimensional structure and realistic interactions",
+            "unrealistic distribution of nutrients and drugs",
+            "poor predictive value in pharmacological testing",
+            "altered cell polarity",
+            "simplified interactions with the extracellular matrix",
+          ],
         },
         {
-          title: "Animal models are outdated",
+          title: "Animal models have structural limits",
           description:
-            "In-vivo testing faces growing EU and US legislative restrictions, raises ethical concerns, is costly and often poorly predictive for humans.",
+            "In-vivo studies face stringent international regulatory restrictions, raise ethical concerns, carry high costs and offer limited translational value.",
         },
         {
-          title: "The current standard falls short",
+          title: "Limits of the current animal-derived standard",
           description:
-            "Dominant hydrogels (Matrigel) are animal-derived: poor batch-to-batch reproducibility, clinical incompatibility and no non-destructive cell recovery.",
+            "The most widely used hydrogels, animal-derived, can show high inter-batch variability, limited clinical translatability, and do not allow non-destructive recovery of cultured cells.",
+          bullets: [
+            "biological variability → composition not always uniform across batches",
+            "immunogenic risk → can trigger immune system responses",
+            "potential pathogen transmission → if not adequately purified",
+            "poor control over mechanical and degradation properties",
+            "limited stability → rapid degradation under physiological conditions",
+            "ethical concerns tied to animal origin",
+            "dependence on non-sustainable sources",
+          ],
         },
       ],
     },
@@ -360,27 +415,44 @@ export const COPY: Record<Locale, SiteCopy> = {
       productLabel: "Core product",
       productName: "AlgiSTEM XF Kit",
       productDescription:
-        "A xeno-free and animal-free extracellular matrix based on engineered alginates.",
+        "A xeno-free extracellular matrix, free of animal-derived components and based on engineered alginates.",
       kitDescription:
-        "Ready-to-use kit: bioengineered alginate matrix plus cell-recovery solution.",
+        "Ready-to-use kit comprising a bioengineered alginate matrix and a cell-recovery solution.",
       uspLabel: "Competitive advantages",
       usps: [
         {
           title: "Modulability",
           description:
-            "Tunable mechanical stiffness targeting different human tissues — brain, lung, liver.",
+            "Tunable biomechanical properties that adapt to the physiopathological ranges of major human tissues.",
         },
         {
           title: "Reproducibility & Sustainability",
           description:
-            "Entirely plant-based recipe. Guaranteed batch-to-batch consistency and full ESG compliance.",
+            "Bioengineered, fully plant-based recipe. Guaranteed batch-to-batch consistency and full ESG compliance.",
         },
         {
           title: "AlgiSTEM XF ReleX",
           description:
-            "Non-mechanical, non-destructive recovery of cells, organoids and spheroids from the matrix. A unique advantage no competitor offers.",
+            "Non-destructive recovery system for cells, organoids and tissues from the matrix, ensuring high preservation of biological integrity. A property unique to alginates compared with current market solutions.",
         },
       ],
+      properties: {
+        title: "Bioengineered alginates carry several valuable properties",
+        items: [
+          "high water-retention capacity",
+          "mimicry of biological tissues",
+          "ability to incorporate active molecules",
+          "sustainability (derived from renewable biomass)",
+        ],
+      },
+      applications: {
+        title: "Primary biomedical applications",
+        items: [
+          "tissue engineering (scaffolds for cells)",
+          "advanced wound dressings",
+          "controlled drug release",
+        ],
+      },
     },
     market: {
       title: "Performance",
@@ -388,7 +460,7 @@ export const COPY: Record<Locale, SiteCopy> = {
       stats: [
         {
           value: "100%",
-          label: "Plant-based",
+          label: "Plant-derived",
           sublabel: "No animal components",
         },
         {
@@ -399,7 +471,7 @@ export const COPY: Record<Locale, SiteCopy> = {
         {
           value: "20+",
           label: "Cell lines",
-          sublabel: "Validated on cell lines and 3D-derived models",
+          sublabel: "Validated on cell lines and three-dimensional (3D) derived models",
         },
       ],
       businessModelTitle: "Accelerate your research",
@@ -487,8 +559,6 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
-          headline:
-            "Associate Professor of Bioengineering, UNITN. Inventor of the core technology.",
           description:
             "Associate Professor of Bioengineering (UNITN), inventor of the core technology with strong pharmaceutical expertise.",
           image: "/team/annalisa_tirella.jpeg",
@@ -496,8 +566,6 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Francesca Pischedda",
-          headline:
-            "PhD, Senior Researcher in neuroscience and biological validation.",
           description:
             "PhD and Senior Researcher, expert in neuroscience and R&D biological validation.",
           image: "/team/francesca_pischedda.jpeg",
@@ -505,8 +573,6 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Stefano Ceci",
-          headline:
-            "Innovation Manager, 25+ years in tech transfer and venture building.",
           description:
             "Innovation Manager with 25+ years of experience in tech transfer, venture building and open innovation.",
           image: "/team/stefano_ceci.jpeg",
@@ -514,8 +580,6 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Gianluca De Danieli",
-          headline:
-            "MD-PhD, 15+ years in clinical development (Sanofi, Novartis).",
           description:
             "Over 15 years in clinical development and medical affairs at multinational pharma companies (Sanofi, Novartis).",
           image: "/team/gianluca_de_danieli.jpeg",
