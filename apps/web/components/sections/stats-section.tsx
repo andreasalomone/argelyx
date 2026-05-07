@@ -21,10 +21,10 @@ export function StatsSection() {
         >
           {/* Header */}
           <div className="mb-20" key={`stats-header-${locale}`}>
-            <h2 className="type-h2 text-[#1e1145] mb-4">
+            <h2 className="type-h2 text-brand-purple mb-4">
               Performance
             </h2>
-            <p className="type-label text-[#1e1145]/60">
+            <p className="type-label text-brand-purple/60">
               {locale === "it" ? "Dati alla mano" : "The data"}
             </p>
           </div>
@@ -41,14 +41,14 @@ export function StatsSection() {
                 className="flex flex-col items-center gap-1"
               >
                 <span
-                  className="type-h2 text-[#1e1145] leading-none"
+                  className="type-h2 text-brand-purple leading-none"
                 >
                   {stat.value}
                 </span>
-                <span className="type-h3 text-[#1e1145] mt-4">
+                <span className="type-h3 text-brand-purple mt-4">
                   {stat.label}
                 </span>
-                <p className="type-body text-[#1e1145]/50 max-w-[200px] mt-2">
+                <p className="type-body text-brand-purple/50 max-w-[200px] mt-2">
                   {stat.sublabel}
                 </p>
               </motion.div>

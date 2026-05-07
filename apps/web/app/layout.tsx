@@ -1,26 +1,21 @@
 import type { Metadata } from "next"
-import { Barlow, Geist_Mono } from "next/font/google"
-import { cn } from "@workspace/ui/lib/utils"
-import { ThemeProvider } from "@/components/theme-provider"
 import { LanguageProvider } from "@/components/language-provider"
+import { MotionRoot } from "@/components/motion-root"
 
 import "@workspace/ui/globals.css"
-
-const barlow = Barlow({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-barlow",
-})
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
 
 export const metadata: Metadata = {
   title: "Algelyx — Matrici extracellulari biocompatibili",
   description:
     "Idrogel avanzati di origine vegetale per colture cellulari 2D e 3D. Matrici xeno-free e animal-free basate su alginati ingegnerizzati.",
+  metadataBase: new URL("https://www.algelyx.com"),
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/monogram.svg", type: "image/svg+xml" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
+  },
   openGraph: {
     title: "Algelyx — Biocompatible extracellular matrices",
     description:
@@ -36,19 +31,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="it"
-      suppressHydrationWarning
-      className={cn(
-        "antialiased",
-        barlow.variable,
-        geistMono.variable,
-      )}
-    >
-      <body suppressHydrationWarning>
-        <ThemeProvider defaultTheme="dark" forcedTheme="dark">
+    <html lang="it" suppressHydrationWarning className="antialiased">
+      <body>
+        <div aria-hidden className="fixed-brand-bg" />
+        <MotionRoot>
           <LanguageProvider>{children}</LanguageProvider>
-        </ThemeProvider>
+        </MotionRoot>
       </body>
     </html>
   )

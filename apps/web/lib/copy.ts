@@ -79,7 +79,7 @@ interface RoadmapCopy {
 
 interface TeamMember {
   name: string
-  role: string
+  headline: string
   description: string
   image: string
   linkedin: string
@@ -89,6 +89,13 @@ interface TeamCopy {
   title: string
   subtitle: string
   members: readonly [TeamMember, TeamMember, TeamMember, TeamMember]
+}
+
+interface ResearchCopy {
+  title: string
+  subtitle: string
+  expandLabel: string
+  collapseLabel: string
 }
 
 interface FooterCopy {
@@ -104,6 +111,7 @@ export interface SiteCopy {
   roadmap: RoadmapCopy
   pricing: PricingCopy
   team: TeamCopy
+  research: ResearchCopy
   footer: FooterCopy
 }
 
@@ -142,9 +150,9 @@ export const COPY: Record<Locale, SiteCopy> = {
       productLabel: "Il prodotto core",
       productName: "AlgiSTEM XF Kit",
       productDescription:
-        "Una matrice extracellulare xeno-free e animal-free, basata su alginati ingegnerizzati.",
+        "Una matrice extracellulare xeno-free, priva di componenti di derivazione animale e basata su alginati ingegnerizzati.",
       kitDescription:
-        "Kit pronto all'uso a 4 componenti: polvere di alginati funzionalizzati (stabile a temperatura ambiente), buffer di reidratazione, agente reticolante e soluzione di recovery.",
+        "Kit pronto all'uso composto da matrice di alginati bioingegnerizzati e soluzione di recovery cellulare.",
       uspLabel: "Vantaggi competitivi",
       usps: [
         {
@@ -171,17 +179,17 @@ export const COPY: Record<Locale, SiteCopy> = {
         {
           value: "100%",
           label: "Vegetale",
-          sublabel: "Senza componenti animali",
+          sublabel: "Privo di componenti animali",
         },
         {
           value: "100%",
           label: "Xeno-free",
-          sublabel: "Riproducibilità batch-to-batch totale",
+          sublabel: "Riproducibilità batch-to-batch garantita",
         },
         {
           value: "20+",
           label: "Linee testate",
-          sublabel: "Validato su iPSC, NPC, tumorali",
+          sublabel: "Validato su linee cellulari e modelli 3D derivati",
         },
       ],
       businessModelTitle: "Accelera la tua ricerca",
@@ -269,7 +277,8 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
-          role: "Scientific Advisor & Co-Founder",
+          headline:
+            "Prof.ssa Associata di Bioingegneria, UNITN. Inventrice della tecnologia core.",
           description:
             "Prof.ssa Associata di Bioingegneria (UNITN), inventrice della tecnologia core con forti competenze farmaceutiche.",
           image: "/team/annalisa_tirella.jpeg",
@@ -277,7 +286,8 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Francesca Pischedda",
-          role: "CTO & Co-Founder",
+          headline:
+            "PhD, Senior Researcher in neuroscienze e validazione biologica.",
           description:
             "PhD e Senior Researcher, esperta in neuroscienze e validazione biologica R&D.",
           image: "/team/francesca_pischedda.jpeg",
@@ -285,7 +295,8 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Stefano Ceci",
-          role: "CEO & Co-Founder",
+          headline:
+            "Innovation Manager, 25+ anni in tech transfer e venture building.",
           description:
             "Innovation Manager con 25+ anni di esperienza in tech transfer, venture building e open innovation.",
           image: "/team/stefano_ceci.jpeg",
@@ -293,13 +304,20 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Gianluca De Danieli",
-          role: "Advisor IP, Fundraising & Co-Founder",
+          headline:
+            "MD-PhD, 15+ anni in sviluppo clinico (Sanofi, Novartis).",
           description:
             "Oltre 15 anni in sviluppo clinico e medical affairs in multinazionali pharma (Sanofi, Novartis).",
           image: "/team/gianluca_de_danieli.jpeg",
           linkedin: "https://www.linkedin.com/in/gianluca-de-danieli-md-phd-msc-53b1397/?skipRedirect=true",
         },
       ],
+    },
+    research: {
+      title: "La Nostra Ricerca",
+      subtitle: "Pubblicazioni peer-reviewed che fondano la nostra tecnologia",
+      expandLabel: "Mostra le pubblicazioni",
+      collapseLabel: "Nascondi le pubblicazioni",
     },
     footer: {
       address:
@@ -344,7 +362,7 @@ export const COPY: Record<Locale, SiteCopy> = {
       productDescription:
         "A xeno-free and animal-free extracellular matrix based on engineered alginates.",
       kitDescription:
-        "Ready-to-use 4-component kit: functionalized alginate powder (room-temperature stable), rehydration buffer, crosslinker and recovery solution.",
+        "Ready-to-use kit: bioengineered alginate matrix plus cell-recovery solution.",
       uspLabel: "Competitive advantages",
       usps: [
         {
@@ -371,17 +389,17 @@ export const COPY: Record<Locale, SiteCopy> = {
         {
           value: "100%",
           label: "Plant-based",
-          sublabel: "Zero animal components",
+          sublabel: "No animal components",
         },
         {
           value: "100%",
           label: "Xeno-free",
-          sublabel: "Total batch-to-batch reproducibility",
+          sublabel: "Guaranteed batch-to-batch reproducibility",
         },
         {
           value: "20+",
           label: "Cell lines",
-          sublabel: "Validated on iPSC, NPC, tumoral",
+          sublabel: "Validated on cell lines and 3D-derived models",
         },
       ],
       businessModelTitle: "Accelerate your research",
@@ -469,7 +487,8 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
-          role: "Scientific Advisor & Co-Founder",
+          headline:
+            "Associate Professor of Bioengineering, UNITN. Inventor of the core technology.",
           description:
             "Associate Professor of Bioengineering (UNITN), inventor of the core technology with strong pharmaceutical expertise.",
           image: "/team/annalisa_tirella.jpeg",
@@ -477,7 +496,8 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Francesca Pischedda",
-          role: "CTO & Co-Founder",
+          headline:
+            "PhD, Senior Researcher in neuroscience and biological validation.",
           description:
             "PhD and Senior Researcher, expert in neuroscience and R&D biological validation.",
           image: "/team/francesca_pischedda.jpeg",
@@ -485,7 +505,8 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Stefano Ceci",
-          role: "CEO & Co-Founder",
+          headline:
+            "Innovation Manager, 25+ years in tech transfer and venture building.",
           description:
             "Innovation Manager with 25+ years of experience in tech transfer, venture building and open innovation.",
           image: "/team/stefano_ceci.jpeg",
@@ -493,13 +514,20 @@ export const COPY: Record<Locale, SiteCopy> = {
         },
         {
           name: "Gianluca De Danieli",
-          role: "Advisor IP, Fundraising & Co-Founder",
+          headline:
+            "MD-PhD, 15+ years in clinical development (Sanofi, Novartis).",
           description:
             "Over 15 years in clinical development and medical affairs at multinational pharma companies (Sanofi, Novartis).",
           image: "/team/gianluca_de_danieli.jpeg",
           linkedin: "https://www.linkedin.com/in/gianluca-de-danieli-md-phd-msc-53b1397/?skipRedirect=true",
         },
       ],
+    },
+    research: {
+      title: "Our Research",
+      subtitle: "Peer-reviewed publications underpinning our technology",
+      expandLabel: "Show publications",
+      collapseLabel: "Hide publications",
     },
     footer: {
       address:

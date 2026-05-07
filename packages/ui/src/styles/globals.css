@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
 @source "../../../apps/**/*.{ts,tsx}";
 @source "../../../components/**/*.{ts,tsx}";
 @source "../../../packages/**/*.{ts,tsx}";
@@ -34,94 +33,110 @@
 /* ─── Design Tokens ────────────────────────────────────────────── */
 @layer base {
   :root {
-    /* Purple brand palette */
-    --purple-950: 259 65% 12%;
-    --purple-900: 259 65% 18%;
-    --purple-800: 259 65% 26%;
-    --purple-700: 261 62% 35%;
-    --purple-600: 263 58% 44%;
-    --purple-500: 265 54% 54%;
-    --purple-400: 267 80% 68%;
-    --purple-300: 269 90% 78%;
-    --violet-accent: 270 100% 72%;
+    /* Brand triad (from book p. 10) */
+    --brand-purple: #4C1D95;
+    --brand-violet: #A78BFA;
+    --brand-coral:  #FB7185;
 
-    /* Semantic tokens */
-    --background: 259 65% 12%;
-    --foreground: 0 0% 100%;
-    --card: 259 60% 18%;
-    --card-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 259 65% 18%;
-    --secondary: 261 62% 35%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 259 50% 30%;
-    --muted-foreground: 0 0% 100% / 0.6;
-    --accent: 270 100% 72%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --border: 0 0% 100% / 0.15;
-    --input: 0 0% 100% / 0.15;
-    --ring: 0 0% 100% / 0.3;
-    --radius: 9999px;
+    /* Brand gradient (book p. 11) — light, mid-tone, multi-stop */
+    --gradient-brand:
+      linear-gradient(135deg,
+        var(--brand-violet) 0%,
+        color-mix(in oklab, var(--brand-purple), var(--brand-violet) 30%) 35%,
+        var(--brand-purple) 60%,
+        color-mix(in oklab, var(--brand-purple), var(--brand-coral) 30%) 80%,
+        var(--brand-coral) 100%);
 
-    /* Glass system */
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-    --glass-blur: 20px;
+    /* Semantic tokens — hex */
+    --background:           #ffffff;
+    --foreground:           #4C1D95;
+    --card:                 #ffffff;
+    --card-foreground:      #4C1D95;
+    --primary:              #4C1D95;
+    --primary-foreground:   #ffffff;
+    --secondary:            #A78BFA;
+    --secondary-foreground: #4C1D95;
+    --muted:                #F3EEFE;
+    --muted-foreground:     #4C1D95;
+    --accent:               #FB7185;
+    --accent-foreground:    #ffffff;
+    --destructive:          #DC2626;
+    --border:               rgb(76 29 149 / 0.15);
+    --input:                rgb(76 29 149 / 0.15);
+    --ring:                 #FB7185;
+    --radius-pill:          9999px;
+    --radius:               var(--radius-pill);
 
-    /* Brand mesh gradient - editorial precision with magenta/pink glows */
-    --gradient-brand: 
-      radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.4) 0%, transparent 40%),
-      radial-gradient(circle at 85% 20%, rgba(236, 72, 153, 0.35) 0%, transparent 45%),
-      radial-gradient(circle at 50% 50%, rgba(67, 56, 202, 0.25) 0%, transparent 60%),
-      radial-gradient(circle at 80% 80%, rgba(192, 38, 211, 0.3) 0%, transparent 40%),
-      radial-gradient(circle at 20% 85%, rgba(99, 102, 241, 0.2) 0%, transparent 40%),
-      linear-gradient(135deg, #0f0529 0%, #1e1145 30%, #2e1065 60%, #1e1b4b 100%);
-    
-    --gradient-hero: var(--gradient-brand);
+    /* Floating navbar offset — used by section[id] scroll-margin-top */
+    --nav-offset: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    :root { --nav-offset: 5rem; }
   }
 }
 
+/* Tailwind v4 theme — these are the names that GENERATE utilities */
 @theme inline {
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-card: hsl(var(--card));
-  --color-card-foreground: hsl(var(--card-foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: hsl(var(--secondary));
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: hsl(var(--muted));
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-border: hsl(var(--border));
-  --color-input: hsl(var(--input));
-  --color-ring: hsl(var(--ring));
+  --color-background:           var(--background);
+  --color-foreground:           var(--foreground);
+  --color-card:                 var(--card);
+  --color-card-foreground:      var(--card-foreground);
+  --color-primary:              var(--primary);
+  --color-primary-foreground:   var(--primary-foreground);
+  --color-secondary:            var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted:                var(--muted);
+  --color-muted-foreground:     var(--muted-foreground);
+  --color-accent:               var(--accent);
+  --color-accent-foreground:    var(--accent-foreground);
+  --color-destructive:          var(--destructive);
+  --color-border:               var(--border);
+  --color-input:                var(--input);
+  --color-ring:                 var(--ring);
 
-  --font-heading: 'Panton', 'Barlow', sans-serif;
-  --font-body: 'Barlow', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  /* Brand triad as utility classes: bg-brand-purple, text-brand-violet, border-brand-coral */
+  --color-brand-purple: var(--brand-purple);
+  --color-brand-violet: var(--brand-violet);
+  --color-brand-coral:  var(--brand-coral);
+
+  --font-heading: 'Panton', sans-serif;
+  --font-body:    'Panton', sans-serif;
+  --font-mono:    'Geist Mono', monospace;
 
   --animate-fade-in-up: fade-in-up 0.6s ease-out both;
-  --animate-float: float 8s ease-in-out infinite;
+  --animate-float:      float 8s ease-in-out infinite;
+}
+
+/* Globals safety net */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  html {
-    scroll-behavior: smooth;
+  * { @apply border-border outline-ring/50; }
+  /* Smooth scroll only when motion isn't reduced */
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
   }
   body {
     @apply bg-background text-foreground overflow-x-hidden;
-    background: var(--gradient-brand);
     min-height: 100vh;
-    background-attachment: fixed;
+    /* No background here — fixed-brand-bg div in layout owns the surface.
+       Children must not use negative z-index — they will sink below the fixed bg. */
   }
+  /* Fixed brand surface, lives behind all content */
+  .fixed-brand-bg {
+    position: fixed;
+    inset: 0;
+    background: var(--gradient-brand);
+    z-index: 0;
+    pointer-events: none;
+  }
+  /* All section content layers above the bg */
+  section, header, footer { position: relative; z-index: 1; }
+  /* Account for fixed navbar height when scrolling to anchors */
+  section[id] { scroll-margin-top: var(--nav-offset); }
 }
 
 /* ─── Keyframes ────────────────────────────────────────────────── */
@@ -129,118 +144,124 @@
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
 
 /* ─── Component Utilities ──────────────────────────────────────── */
 @layer components {
-  /* Brand Cross Asset */
   .brand-plus {
     position: absolute;
     pointer-events: none;
     z-index: 1;
-    filter: brightness(0) invert(1);
     object-fit: contain;
   }
 
-  /* liquid-glass: subtle frosted card on purple bg */
   .liquid-glass {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgb(255 255 255 / 0.08);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgb(255 255 255 / 0.20);
   }
 
-  /* outline-card: thin border, transparent bg - used for features/pricing */
   .outline-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgb(255 255 255 / 0.06);
+    border: 1px solid rgb(255 255 255 / 0.30);
     backdrop-filter: blur(8px);
     transition: border-color 0.2s, background 0.2s;
   }
   .outline-card:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.06);
+    border-color: rgb(255 255 255 / 0.50);
+    background: rgb(255 255 255 / 0.10);
   }
 
-  /* white-card: light card for contrast sections (performance, team) */
   .white-card {
     background: #ffffff;
-    color: #1e1145;
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.08);
+    color: var(--brand-purple);
+    box-shadow: 0 12px 48px rgb(0 0 0 / 0.08);
   }
 
-  /* pill-badge: small label pill */
   .pill-badge {
     display: inline-flex;
     align-items: center;
     padding: 0.35rem 1rem;
-    border-radius: 9999px;
+    border-radius: var(--radius-pill);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgb(255 255 255 / 0.12);
+    border: 1px solid rgb(255 255 255 / 0.24);
     color: #ffffff;
   }
 
-  /* btn-primary: white filled CTA */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background: #ffffff;
-    color: #1e1145;
-    font-family: 'Panton', sans-serif;
-    font-weight: 900;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    border-radius: 9999px;
-    padding: 0.875rem 2rem;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .btn-primary:hover {
-    background: #f8f9fa;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
-  }
-
-  /* btn-outline: ghost outline CTA */
+  /* Pill button chassis: shared via custom property block, declared on both classes.
+     Kept inline (not @apply'd) because Tailwind v4 doesn't accept @apply of @layer components. */
+  .btn-primary,
   .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: transparent;
-    color: #ffffff;
     font-family: 'Panton', sans-serif;
     font-weight: 900;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    border-radius: 9999px;
+    border-radius: var(--radius-pill);
     padding: 0.875rem 2rem;
-    border: 2px solid #ffffff;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  .btn-primary:focus-visible,
+  .btn-outline:focus-visible {
+    outline: 2px solid var(--brand-coral);
+    outline-offset: 2px;
+  }
+
+  .btn-primary {
+    background: #ffffff;
+    color: var(--brand-purple);
+  }
+  .btn-primary:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgb(255 255 255 / 0.25);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+  }
   .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgb(255 255 255 / 0.10);
     transform: translateY(-2px);
   }
 
-  /* floating-nav: white pill navigation */
   .floating-nav {
-    background: #ffffff;
-    border-radius: 9999px;
+    /* Translucent + blur so content scrolling underneath stays legible */
+    background: rgb(255 255 255 / 0.78);
+    backdrop-filter: saturate(140%) blur(18px);
+    -webkit-backdrop-filter: saturate(140%) blur(18px);
+    border-radius: var(--radius-pill);
     padding: 0.5rem 1rem;
-    color: #1e1145;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    color: var(--brand-purple);
+    box-shadow: 0 8px 32px rgb(0 0 0 / 0.12);
     display: flex;
     align-items: center;
     gap: 1.5rem;
   }
 
+  /* Brand-purple solid section block (alternates with gradient surface) */
+  .brand-purple-section {
+    background: var(--brand-purple);
+    color: #ffffff;
+  }
+
+  /* Section heading helpers — placed here to keep all component classes in one block */
+  .section-heading      { @apply type-h2; color: #ffffff; }
+  .section-heading-dark { @apply type-h2; color: var(--brand-purple); }
 }
 
 /* ─── Typography Scale (Utilities) ─────────────────────────────── */
@@ -250,6 +271,7 @@
   line-height: 0.95;
   letter-spacing: -0.02em;
   font-size: clamp(2.65rem, 11.25vw, 5.4rem);
+  text-wrap: balance;
 }
 
 @utility type-h2 {
@@ -258,6 +280,7 @@
   line-height: 1.05;
   letter-spacing: -0.01em;
   font-size: clamp(1.65rem, 6vw, 4.5rem);
+  text-wrap: balance;
 }
 
 @utility type-h3 {
@@ -266,6 +289,7 @@
   line-height: 1.2;
   letter-spacing: -0.01em;
   font-size: clamp(1.25rem, 3vw, 1.75rem);
+  text-wrap: balance;
 }
 
 @utility type-lead {
@@ -290,17 +314,3 @@
   font-size: 0.7rem;
 }
 
-/* ─── Semantic Components ──────────────────────────────────────── */
-@layer components {
-  /* section-heading: large display text */
-  .section-heading {
-    @apply type-h2;
-    color: #ffffff;
-  }
-
-  /* section-heading-dark: for white-bg sections */
-  .section-heading-dark {
-    @apply type-h2;
-    color: #1e1145;
-  }
-}

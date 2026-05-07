@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
+import Image from "next/image"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
 import { BrandCrosses } from "@/components/ui/brand-crosses"
@@ -67,11 +68,13 @@ export function SolutionSection() {
             transition={{ duration: 0.8 }}
             className="flex-1 w-full"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-              <img
-                src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=1600&auto=format&fit=crop"
-                alt="Cellular culture imaging"
-                className="w-full aspect-[1.4] object-cover"
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 aspect-[1.4]">
+              <Image
+                src="/solution/cell-culture-imaging.jpg"
+                alt={locale === "it" ? "Imaging di coltura cellulare 3D" : "3D cell culture imaging"}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           </motion.div>
@@ -101,11 +104,13 @@ export function SolutionSection() {
             transition={{ duration: 0.8 }}
             className="flex-1 w-full"
           >
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/20">
-              <img
-                src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1600&auto=format&fit=crop"
-                alt="Lab flask preview"
-                className="w-full aspect-[1.4] object-cover"
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 aspect-[1.4]">
+              <Image
+                src="/solution/lab-flask.jpg"
+                alt={locale === "it" ? "Recupero cellulare in laboratorio" : "Cell recovery in the lab"}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
           </motion.div>

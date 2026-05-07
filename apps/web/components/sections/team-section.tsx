@@ -10,12 +10,12 @@ import { cn } from "@workspace/ui/lib/utils"
 import { BrandCrosses } from "@/components/ui/brand-crosses"
 
 interface MemberCardProps {
-  member: { 
-    name: string; 
-    role: string; 
-    description: string;
-    image: string;
-    linkedin: string;
+  member: {
+    name: string
+    headline: string
+    description: string
+    image: string
+    linkedin: string
   }
   delay: number
   locale: string
@@ -23,6 +23,15 @@ interface MemberCardProps {
 
 function MemberCard({ member, delay, locale }: MemberCardProps) {
   const [isExpanded, setIsExpanded] = useState(true)
+  const bioId = `member-bio-${member.name.toLowerCase().replace(/\s+/g, "-")}`
+
+  const headline = member.headline
+  const remainder = member.description
+  const hasMore = remainder.length > 0
+
+  const toggle = () => {
+    if (hasMore) setIsExpanded(!isExpanded)
+  }
 
   return (
     <motion.div
@@ -31,67 +40,79 @@ function MemberCard({ member, delay, locale }: MemberCardProps) {
       viewport={{ once: true }}
       transition={{ delay, duration: 0.5 }}
       className={cn(
-        "white-card rounded-3xl p-8 flex flex-col items-center text-center cursor-pointer group transition-all duration-300",
+        "white-card rounded-3xl p-8 flex flex-col items-center text-center group transition-all duration-300",
+        hasMore && "cursor-pointer",
         isExpanded ? "h-full" : "h-fit self-start"
       )}
-      onClick={() => setIsExpanded(!isExpanded)}
+      onClick={toggle}
     >
       {/* Avatar circle - more opinionated style */}
       <div
-        className="w-24 h-24 rounded-full flex items-center justify-center mb-8 shrink-0 transition-all duration-500 ring-1 ring-[#1e1145]/10 group-hover:ring-4 group-hover:ring-[#5b21b6]/20 group-hover:scale-105 overflow-hidden bg-muted"
+        className="w-24 h-24 rounded-full flex items-center justify-center mb-8 shrink-0 transition-all duration-500 ring-1 ring-brand-purple/10 group-hover:ring-4 group-hover:ring-brand-violet/30 group-hover:scale-105 overflow-hidden bg-muted"
       >
-        <Image 
-          src={member.image} 
-          alt={member.name} 
-          width={96} 
-          height={96} 
+        <Image
+          src={member.image}
+          alt={member.name}
+          width={96}
+          height={96}
           className="w-full h-full object-cover"
         />
       </div>
 
       <div className="flex-1 flex flex-col items-center">
-        <a 
+        <a
           href={member.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:underline decoration-[#5b21b6]/30 underline-offset-4"
+          onClick={(e) => e.stopPropagation()}
+          className="hover:underline decoration-brand-violet/40 underline-offset-4"
         >
-          <h3
-            className="type-h3 text-[#1e1145] leading-[1.0] mb-2 px-2"
-          >
+          <h3 className="type-h3 text-brand-purple leading-[1.0] mb-2 px-2">
             {member.name.split(' ')[0]}<br />
             {member.name.split(' ').slice(1).join(' ')}
           </h3>
         </a>
-        <p className="text-[10px] font-body font-bold uppercase tracking-[0.2em] text-[#5b21b6] mb-6">
-          {member.role}
+        <p className="text-sm font-body text-brand-purple/60 mb-6 px-2 leading-snug">
+          {headline}
         </p>
 
         <AnimatePresence initial={false}>
-          {isExpanded && (
+          {isExpanded && hasMore && (
             <motion.div
+              id={bioId}
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
               className="overflow-hidden w-full mb-6"
             >
-              <p className="text-sm font-body font-medium leading-relaxed text-[#1e1145]/70 text-left border-t border-[#1e1145]/10 pt-6 mt-2">
-                {member.description}
+              <p className="text-sm font-body font-medium leading-relaxed text-brand-purple/70 text-left border-t border-brand-purple/10 pt-6 mt-2">
+                {remainder}
               </p>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
 
-      <button className="mt-auto flex items-center gap-2 text-[#5b21b6] group-hover:text-[#1e1145] transition-all duration-300 type-label group-hover:translate-y-[-4px]">
-        {locale === "en"
-          ? isExpanded ? "Less" : "Bio"
-          : isExpanded ? "Meno" : "Bio"}
-        <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
-          <ChevronDown className="w-3.5 h-3.5" />
-        </motion.div>
-      </button>
+      {hasMore && (
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation()
+            toggle()
+          }}
+          aria-expanded={isExpanded}
+          aria-controls={bioId}
+          className="mt-auto flex items-center gap-2 text-brand-violet group-hover:text-brand-purple transition-all duration-300 type-label group-hover:translate-y-[-4px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-coral rounded"
+        >
+          {locale === "en"
+            ? isExpanded ? "Less" : "Bio"
+            : isExpanded ? "Meno" : "Bio"}
+          <motion.div animate={{ rotate: isExpanded ? 180 : 0 }} transition={{ duration: 0.3 }}>
+            <ChevronDown className="w-3.5 h-3.5" />
+          </motion.div>
+        </button>
+      )}
     </motion.div>
   )
 }

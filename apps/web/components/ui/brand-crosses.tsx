@@ -7,19 +7,32 @@ interface BrandCrossProps {
   className?: string
   size?: number
   rotation?: number
+  /**
+   * "neg" -> white monogram (use on dark/gradient surfaces)
+   * "pos" -> brand-purple monogram (use on light surfaces)
+   */
+  variant?: "neg" | "pos"
 }
 
-export function BrandCross({ className, size = 200, rotation = 0 }: BrandCrossProps) {
+export function BrandCross({
+  className,
+  size = 200,
+  rotation = 0,
+  variant = "neg",
+}: BrandCrossProps) {
+  const src =
+    variant === "pos"
+      ? "/monogram-mono-pos.svg"
+      : "/monogram-mono-neg.svg"
+
   return (
-    <Image 
-      src="/XLogo.png"
+    <Image
+      src={src}
       alt=""
       width={size}
       height={size}
-      className={cn(
-        "brand-plus",
-        className
-      )}
+      unoptimized
+      className={cn("brand-plus", className)}
       style={{
         transform: `rotate(${rotation}deg)`,
         width: size,
@@ -38,16 +51,18 @@ export function BrandCrosses({ section }: BrandCrossesContainerProps) {
     return (
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden hidden md:block">
         {/* Top Left - Moved in from edges to avoid truncation */}
-        <BrandCross 
-          size={320} 
-          rotation={35} 
-          className="left-[8%] top-[12%] opacity-60" 
+        <BrandCross
+          variant="neg"
+          size={320}
+          rotation={35}
+          className="left-[8%] top-[12%] opacity-60"
         />
         {/* Bottom Right - Moved in from edges to avoid truncation */}
-        <BrandCross 
-          size={380} 
-          rotation={-15} 
-          className="right-[10%] bottom-[15%] opacity-40" 
+        <BrandCross
+          variant="neg"
+          size={380}
+          rotation={-15}
+          className="right-[10%] bottom-[15%] opacity-40"
         />
       </div>
     )
@@ -56,32 +71,36 @@ export function BrandCrosses({ section }: BrandCrossesContainerProps) {
   if (section === "footer") {
     return (
       <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-        <BrandCross 
-          size={180} 
-          rotation={15} 
-          className="-left-12 bottom-[5%] opacity-40" 
+        <BrandCross
+          variant="neg"
+          size={180}
+          rotation={15}
+          className="-left-12 bottom-[5%] opacity-40"
         />
-        <BrandCross 
-          size={140} 
-          rotation={-35} 
-          className="-right-10 bottom-[15%] opacity-50" 
+        <BrandCross
+          variant="neg"
+          size={140}
+          rotation={-35}
+          className="-right-10 bottom-[15%] opacity-50"
         />
       </div>
     )
   }
 
-  // General background texture for other sections
+  // General background texture for other sections (also sit on dark gradient)
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden opacity-30">
-      <BrandCross 
-        size={200} 
-        rotation={25} 
-        className="-left-10 top-1/2 opacity-20" 
+      <BrandCross
+        variant="neg"
+        size={200}
+        rotation={25}
+        className="-left-10 top-1/2 opacity-20"
       />
-      <BrandCross 
-        size={300} 
-        rotation={-20} 
-        className="-right-10 bottom-1/4 opacity-20" 
+      <BrandCross
+        variant="neg"
+        size={300}
+        rotation={-20}
+        className="-right-10 bottom-1/4 opacity-20"
       />
     </div>
   )

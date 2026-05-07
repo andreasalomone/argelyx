@@ -1,12 +1,10 @@
 "use client"
 
 import { motion } from "motion/react"
-import Image from "next/image"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
 import { BrandCrosses } from "@/components/ui/brand-crosses"
-
-const PARTNERS = ["Novartis", "Pfizer", "Sanofi", "Moderna", "Roche"]
+import { BrandLogo } from "@/components/ui/brand-logo"
 
 export function HeroSection() {
   const { locale } = useLocale()
@@ -29,12 +27,11 @@ export function HeroSection() {
           className="mb-10"
         >
           <div className="liquid-glass rounded-full px-8 py-4 border border-white/20 flex items-center justify-center">
-            <Image 
-              src="/logo.svg" 
-              alt="Algelyx Logo" 
-              width={240} 
-              height={60} 
-              className="brightness-0 invert h-6 md:h-12 w-auto"
+            <BrandLogo
+              variant="color"
+              kind="horizontal"
+              priority
+              className="h-6 w-auto md:h-12"
             />
           </div>
         </motion.div>
@@ -83,25 +80,6 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Partner logos bar - HIDDEN per user request
-      <div className="relative z-10 mt-24 w-full flex flex-col items-center gap-8">
-        <p className="text-white/60 text-[10px] font-body font-bold uppercase tracking-[0.2em]">
-          {locale === "it" ? "Scelto dai team di ricerca di" : "Trusted by research teams at"}
-        </p>
-        <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 px-8 py-6 rounded-full border border-white/20 backdrop-blur-sm bg-white/5">
-          {PARTNERS.map((name) => (
-            <span
-              key={name}
-              className="text-white font-heading font-900 text-sm md:text-lg uppercase tracking-widest opacity-80"
-            >
-              {name}
-            </span>
-          ))}
-        </div>
-      </div>
-      */}
     </section>
   )
 }
-
-

@@ -34,7 +34,6 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
-docs/
 
 # Tooling & Design Sources
 .gemini/
@@ -44,3 +43,11 @@ docs/
 *.fig
 designs/
 dist-ssr/
+
+# OS
+.DS_Store
+
+# Editor scratch
+*.tmp
+.gstack/
+.design-review/

@@ -1,5 +1,10 @@
 "use client"
 
+/**
+ * @deprecated Unused as of 2026-05-06 (Algelyx rebrand).
+ * Delete by 2026-09-01 if still unrouted.
+ */
+
 import { SectionWrapper } from "@/components/section-wrapper"
 import { useLocale } from "@/components/language-provider"
 import { COPY } from "@/lib/copy"
