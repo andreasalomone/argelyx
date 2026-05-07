@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { LanguageProvider } from "@/components/language-provider"
 import { MotionRoot } from "@/components/motion-root"
+import { JsonLd } from "@/components/seo/json-ld"
 
 import "@workspace/ui/globals.css"
 
@@ -44,6 +45,7 @@ export default function RootLayout({
   return (
     <html lang="it" suppressHydrationWarning className="antialiased">
       <body>
+        <JsonLd />
         <div aria-hidden className="fixed-brand-bg" />
         <MotionRoot>
           <LanguageProvider>{children}</LanguageProvider>
