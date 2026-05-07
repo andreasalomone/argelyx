@@ -37,6 +37,7 @@ interface SolutionCopy {
   kitDescription: string
   uspLabel: string
   usps: readonly [USP, USP, USP]
+  relex: USP
   properties: BulletList
   applications: BulletList
 }
@@ -188,16 +189,21 @@ export const COPY: Record<Locale, SiteCopy> = {
             "Proprietà biomeccaniche modulabili per adattarsi ai range fisiopatologici dei principali tessuti umani.",
         },
         {
-          title: "Riproducibilità e Sostenibilità",
+          title: "Riproducibilità",
           description:
-            "Ricetta bioingegnerizzata e interamente a base vegetale. Coerenza batch-to-batch garantita e pieno rispetto dei criteri ESG.",
+            "Affidabilità e coerenza batch-to-batch garantita e pieno rispetto dei criteri ESG.",
         },
         {
-          title: "AlgiSTEM XF ReleX",
+          title: "Sostenibilità",
           description:
-            "Sistema per il recupero non distruttivo di cellule, organoidi e tessuti dalla matrice, garantendo elevata preservazione dell'integrità biologica. Una caratteristica propria degli alginati rispetto alle soluzioni attualmente presenti sul mercato.",
+            "Ricetta bioingegnerizzata e interamente a base vegetale.",
         },
       ],
+      relex: {
+        title: "AlgiSTEM XF ReleX",
+        description:
+          "Sistema per il recupero non distruttivo di cellule, organoidi e tessuti dalla matrice, garantendo elevata preservazione dell'integrità biologica. Una caratteristica propria degli alginati rispetto alle soluzioni attualmente presenti sul mercato.",
+      },
       properties: {
         title: "Gli alginati bioingegnerizzati hanno alcune proprietà molto interessanti",
         items: [
@@ -426,16 +432,21 @@ export const COPY: Record<Locale, SiteCopy> = {
             "Tunable biomechanical properties that adapt to the physiopathological ranges of major human tissues.",
         },
         {
-          title: "Reproducibility & Sustainability",
+          title: "Reproducibility",
           description:
-            "Bioengineered, fully plant-based recipe. Guaranteed batch-to-batch consistency and full ESG compliance.",
+            "Reliability and guaranteed batch-to-batch consistency, in full ESG compliance.",
         },
         {
-          title: "AlgiSTEM XF ReleX",
+          title: "Sustainability",
           description:
-            "Non-destructive recovery system for cells, organoids and tissues from the matrix, ensuring high preservation of biological integrity. A property unique to alginates compared with current market solutions.",
+            "Bioengineered, fully plant-based recipe.",
         },
       ],
+      relex: {
+        title: "AlgiSTEM XF ReleX",
+        description:
+          "Non-destructive recovery system for cells, organoids and tissues from the matrix, ensuring high preservation of biological integrity. A property unique to alginates compared with current market solutions.",
+      },
       properties: {
         title: "Bioengineered alginates carry several valuable properties",
         items: [

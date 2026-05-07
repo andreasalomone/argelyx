@@ -133,10 +133,10 @@ export function SolutionSection() {
             className="flex-[0.8] space-y-6"
           >
             <h3 className="type-h3 text-white/95">
-              {copy.solution.usps[2].title}
+              {copy.solution.relex.title}
             </h3>
             <p className="type-lead text-white/75">
-              {copy.solution.usps[2].description}
+              {copy.solution.relex.description}
             </p>
           </motion.div>
 

@@ -36,11 +36,7 @@ export function FeaturesGrid() {
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               className="outline-card rounded-2xl p-8 flex flex-col gap-6"
             >
-              <h3
-                className={`type-h3 underline decoration-brand-coral/30 underline-offset-8 ${
-                  idx === 2 ? "text-brand-violet" : "text-white"
-                }`}
-              >
+              <h3 className="type-h3 text-white underline decoration-brand-coral/30 underline-offset-8">
                 {usp.title}
               </h3>
               <p className="type-body text-white/80">
