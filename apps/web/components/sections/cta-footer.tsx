@@ -73,6 +73,9 @@ export function CtaFooter() {
             <p className="text-white/25 font-body text-[10px] uppercase tracking-wider">
               {copy.footer.address}
             </p>
+            <p className="text-white/25 font-body text-[10px] uppercase tracking-wider">
+              {copy.footer.vat}
+            </p>
           </div>
         </div>
         <div className="flex items-center gap-8 text-white/40 font-body text-[11px] font-bold uppercase tracking-widest">
