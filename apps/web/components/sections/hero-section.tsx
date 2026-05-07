@@ -65,12 +65,12 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="mt-12 flex flex-col sm:flex-row items-center gap-5"
         >
-          <button
-            onClick={() => document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" })}
+          <a
+            href="#solution"
             className="btn-primary"
           >
             {copy.hero.cta}
-          </button>
+          </a>
           <a
             href="mailto:info@algelyx.com"
             className="btn-outline"
