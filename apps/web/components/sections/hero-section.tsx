@@ -28,7 +28,7 @@ export function HeroSection() {
         >
           <div className="liquid-glass rounded-full px-8 py-4 border border-white/20 flex items-center justify-center">
             <BrandLogo
-              variant="color"
+              variant="mono-neg"
               kind="horizontal"
               priority
               className="h-6 w-auto md:h-12"
