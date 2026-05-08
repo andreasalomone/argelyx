@@ -9,6 +9,7 @@ import { BrandCrosses } from "@/components/ui/brand-crosses"
 interface MemberCardProps {
   member: {
     name: string
+    role: string
     description: string
     image: string
     linkedin: string
@@ -45,7 +46,7 @@ function MemberCard({ member, delay }: MemberCardProps) {
           rel="noopener noreferrer"
           className="hover:underline decoration-brand-violet/40 underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-coral rounded"
         >
-          <h3 className="type-h3 text-brand-purple leading-[1.0] mb-5 px-2">
+          <h3 className="type-h3 text-brand-purple leading-[1.0] mb-3 px-2">
             {first}
             {last && (
               <>
@@ -55,6 +56,9 @@ function MemberCard({ member, delay }: MemberCardProps) {
             )}
           </h3>
         </a>
+        <p className="type-label text-brand-coral mb-4 px-2">
+          {member.role}
+        </p>
         <p className="text-sm font-body font-medium leading-relaxed text-brand-purple/75 px-2">
           {member.description}
         </p>
