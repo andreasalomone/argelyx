@@ -54,4 +54,10 @@ export const PUBLICATIONS: readonly Publication[] = [
     year: 2025,
     title: "Exploiting Response Surface Methodology to Engineer the Mechanical Properties of Alginate-based Hydrogels",
   },
+  {
+    doi: "10.1021/acsomega.5c13436",
+    journal: "ACS Omega",
+    year: 2026,
+    title: "Biofabricated Alginate Hydrogels to Study Prostate Tumoral Microenvironments In Vitro",
+  },
 ] as const
