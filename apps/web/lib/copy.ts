@@ -89,6 +89,7 @@ interface RoadmapCopy {
 
 interface TeamMember {
   name: string
+  role: string
   description: string
   image: string
   linkedin: string
@@ -176,7 +177,7 @@ export const COPY: Record<Locale, SiteCopy> = {
     },
     solution: {
       title: "La Soluzione",
-      productLabel: "Il prodotto core",
+      productLabel: "AlgiSTEM XF matrix",
       productName: "AlgiSTEM XF Kit",
       productDescription:
         "Una matrice extracellulare xeno-free, priva di componenti di derivazione animale e basata su alginati ingegnerizzati.",
@@ -328,29 +329,33 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
+          role: "Scientific Advisor",
           description:
-            "Prof.ssa Associata di Bioingegneria (UNITN), inventrice della tecnologia core con forti competenze farmaceutiche.",
+            "Prof.ssa di bioingegneria industriale con competenze in ambito farmaceutico.",
           image: "/team/annalisa_tirella.jpeg",
           linkedin: "https://www.linkedin.com/in/annalisa-tirella-1602177/",
         },
         {
           name: "Francesca Pischedda",
+          role: "Technology Officer",
           description:
-            "PhD e Senior Researcher, esperta in neuroscienze e validazione biologica R&D.",
+            "Senior Researcher con competenze biologiche nel campo delle Neuroscienze.",
           image: "/team/francesca_pischedda.jpg",
           linkedin: "https://www.linkedin.com/in/francesca-pischedda-3723181a8/",
         },
         {
           name: "Stefano Ceci",
+          role: "Growth Manager",
           description:
-            "Innovation Manager con 25+ anni di esperienza in tech transfer, venture building e open innovation.",
+            "Innovation manager e investor con competenze in crescita e go-to-market.",
           image: "/team/stefano_ceci.jpeg",
           linkedin: "https://www.linkedin.com/in/cecistefano/",
         },
         {
           name: "Gianluca De Danieli",
+          role: "Clinical Development & Business Manager",
           description:
-            "Oltre 15 anni in sviluppo clinico e medical affairs in multinazionali pharma (Sanofi, Novartis).",
+            "Medico specialista in sviluppo clinico e pre-clinico con expertise nel settore biotech.",
           image: "/team/gianluca_de_danieli.jpeg",
           linkedin: "https://www.linkedin.com/in/gianluca-de-danieli-md-phd-msc-53b1397/?skipRedirect=true",
         },
@@ -419,7 +424,7 @@ export const COPY: Record<Locale, SiteCopy> = {
     },
     solution: {
       title: "The Solution",
-      productLabel: "Core product",
+      productLabel: "AlgiSTEM XF matrix",
       productName: "AlgiSTEM XF Kit",
       productDescription:
         "A xeno-free extracellular matrix, free of animal-derived components and based on engineered alginates.",
@@ -571,29 +576,33 @@ export const COPY: Record<Locale, SiteCopy> = {
       members: [
         {
           name: "Annalisa Tirella",
+          role: "Scientific Advisor",
           description:
-            "Associate Professor of Bioengineering (UNITN), inventor of the core technology with strong pharmaceutical expertise.",
+            "Professor of Industrial Bioengineering with pharmaceutical expertise.",
           image: "/team/annalisa_tirella.jpeg",
           linkedin: "https://www.linkedin.com/in/annalisa-tirella-1602177/",
         },
         {
           name: "Francesca Pischedda",
+          role: "Technology Officer",
           description:
-            "PhD and Senior Researcher, expert in neuroscience and R&D biological validation.",
+            "Senior Researcher with biological expertise in Neuroscience.",
           image: "/team/francesca_pischedda.jpg",
           linkedin: "https://www.linkedin.com/in/francesca-pischedda-3723181a8/",
         },
         {
           name: "Stefano Ceci",
+          role: "Growth Manager",
           description:
-            "Innovation Manager with 25+ years of experience in tech transfer, venture building and open innovation.",
+            "Innovation manager and investor with expertise in growth and go-to-market.",
           image: "/team/stefano_ceci.jpeg",
           linkedin: "https://www.linkedin.com/in/cecistefano/",
         },
         {
           name: "Gianluca De Danieli",
+          role: "Clinical Development & Business Manager",
           description:
-            "Over 15 years in clinical development and medical affairs at multinational pharma companies (Sanofi, Novartis).",
+            "Medical specialist in clinical and pre-clinical development with expertise in the biotech sector.",
           image: "/team/gianluca_de_danieli.jpeg",
           linkedin: "https://www.linkedin.com/in/gianluca-de-danieli-md-phd-msc-53b1397/?skipRedirect=true",
         },
