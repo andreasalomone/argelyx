@@ -11,7 +11,7 @@ import {
 import type { Locale } from "@/lib/copy"
 
 const STORAGE_KEY = "algelyx-locale"
-const DEFAULT_LOCALE: Locale = "it"
+const DEFAULT_LOCALE: Locale = "en"
 
 interface LanguageContextValue {
   locale: Locale

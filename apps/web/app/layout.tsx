@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="it" suppressHydrationWarning className="antialiased">
+    <html lang="en" suppressHydrationWarning className="antialiased">
       <body>
         <JsonLd />
         <div aria-hidden className="fixed-brand-bg" />
